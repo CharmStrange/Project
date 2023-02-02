@@ -45,7 +45,7 @@ def write():
         print(le)
 
     def save():
-        with open("C:/Users/이건희/OneDrive/바탕 화면/작업용/학교 수업/방학/개인 프로젝트/List.txt", 'a') as F: 
+        with open("경로", 'a') as F: 
             F.write(str(Lists)+'\n');Lists.clear();F.close()
 
 def see():
