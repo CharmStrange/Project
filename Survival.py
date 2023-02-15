@@ -12,7 +12,7 @@ print(np.random.choice([food for food in np.random.rand(100)], 100, replace=Fals
 
 # 딕션너리의 각 value 와 리스트의 각 음식 값을 매치해 더해주기
 #아래 문장이 문제, TypeError: cannot unpack non-iterable numpy.float64 object
-[[value+food for value, food in np.random.choice([food for food in np.random.rand(100)], 100, replace=False)] for value in list(({init:0 for init in list([human for human in np.arange(1,101).reshape(100)])}).values())]
+[[value+food for value in np.random.choice([food for food in np.random.rand(100)], 100, replace=False)] for value in list(({init:0 for init in list([human for human in np.arange(1,101).reshape(100)])}).values())]
 
 #[a for a in ({init:0 for init in list([human for human in np.arange(1,101).reshape(100)])}).values()]
 
