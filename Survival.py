@@ -34,3 +34,10 @@ np.array(list(({init:0 for init in list([human for human in np.arange(1,101).res
 import random as rd
 
 type(np.random.choice([food for food in np.random.randint(1,3,size=100)], 100, replace=False))
+
+########################################################################################################################################################################################################################################################################
+
+# 각 개체의 초기 능력치에 랜덤한 음식 값을 더함(음식을 먹음), 이걸 다시 각 개체의 능력치로 저장
+humans=list(({init:0 for init in list([human for human in np.arange(1,101).reshape(100)])}).values())
+foods=[food for food in np.random.rand(100)]
+humans[0]+foods[0] # 0번 인덱스
