@@ -1,11 +1,11 @@
-#ifndef NAME.H
-#define NAME.H
+#ifndef NAME_H
+# define NAME_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <time.h>
 
-#define ARRAYSIZE 5 
+# define ARRAYSIZE 5 
 
 // 랜덤한 이름으로 캐릭터 생성하기
 void RandomName(void){
