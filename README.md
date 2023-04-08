@@ -1,7 +1,3 @@
-# Project
-진행한 프로젝트들을 기록합니다.
-(잡다한 것들이 많을 예정, 대다수는 Python)
-
-- 파이썬 토이 프로젝트 <https://github.com/CharmStrange/Project/tree/%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98>
-
-- C 텍스트 기반 상호작용 프로그램 프로젝트
+# C Game Making(Text based RPG)
+- - -
+###  텍스트 기반 고전 Role-Playing-Game 을 좋아하는 편인데, 특히 명령 프롬프트 창과 같은 터미널 배경에서 플레이하는게 좋았다. 그래서 그 느낌을 살려볼 수 있게 C 언어로 제작을 해 보기로 했다. 
