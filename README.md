@@ -19,4 +19,4 @@
 
 - [[캐릭터 별 스토리 파일]](CharacterStory.zip)
 
-- [*메인 파일*](Main.c)
+- [*메인 파일*](MAIN.c)
