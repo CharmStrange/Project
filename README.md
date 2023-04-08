@@ -17,6 +17,8 @@
 
 - [<캐릭터 스토리 정보 헤더 파일>](CHARACTERSTORY.h)
 
+- [[캐릭터 별 스토리 파일]](CharacterStory.zip)
+
 메인 파일
 <pre>
 #include <stdio.h>
