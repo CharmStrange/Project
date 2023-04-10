@@ -12,7 +12,7 @@ void Init(void){
     printf("---------------------------------------------------------------------------------------\nAt first, choose, name your character(you can name your character Random-name or Custom-name).\nThen Read some information of game rule, ... whatever\n");
     printf("\nType alphabet to choose\n[a] : War Hammer\n[b] : War Spear\n[c] : War Blade\n[d] : Dark Magician\n[e] : Holy Magician\n[f] : Elemental_magician\n[g] : Thief\n[h] : Mafia\n:");
     scanf("%s", &ch);
-    
+    printf("\n---------------------------------------------------------------------------------------");
     switch(ch){
         case 'a':
             Character=War_hammer;
@@ -52,32 +52,38 @@ void Init(void){
         case 'h':
             Character=Mafia;
             InformationShow(Character);
-            break;        
+            break;    
+        
+        default:
+            printf("\nYou typed wrong number. Default is War Hammer.\n");
+            Character=War_hammer;  
+            InformationShow(Character);
+            break;  
     }
     
-    printf("\n\nDefault Character name is Random-name.\nBut you can choose.\nRandom-name or Custom-name?\nType [T] for Random-name or [F] for Custom-name :");
+    printf("\n\nDefault Character name is Random-name.\n\nBut you can choose.\n\nRandom-name or Custom-name?\n\nType [T] for Random-name or [F] for Custom-name :");
     scanf("%s", &bl);
     switch(bl){
         case 'T':
             RandomName();
-            printf("(%s)", Character.name);
+            printf("(%s)\n", Character.name);
             break;
 
         case 'F':
             CustomName();
-            printf("(%s)", Character.name);
+            printf("(%s)\n", Character.name);
             break;
 
         default:
             printf("Default is Random-name.");
             RandomName();
-            printf("(%s)", Character.name);
+            printf("(%s)\n", Character.name);
             break;
     }
 }
 
 void Begin(void){
-    srand(time(NULL)); // 이걸 빼먹어서 다시 설
+    srand(time(NULL));
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
  
@@ -97,6 +103,7 @@ void On(void){
             break;
         case 2:
             Information();
+            Story_Show();
             break;
         case 3:
         printf("program exit...");
