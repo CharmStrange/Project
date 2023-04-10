@@ -36,7 +36,7 @@
 
 
 
-<img width="280" alt="image" src="https://user-images.githubusercontent.com/105769152/230701036-02535537-9041-48bf-9f71-3393ffca39dd.png">
+<img width="483" alt="image" src="https://user-images.githubusercontent.com/105769152/230922096-71aafa5c-2322-4751-aaed-dbe22c81e95a.png">
 
 그 후 캐릭터의 이름을 정하는 과정이 진행되며 이때 **무작위**로 이름을 정할지, **사용자 설정**으로 이름을 정할지 선택 가능하게 만들었다. 무작위로 이름을 정했을 때 생성되는 무작위 이름은 총 25 가지이며 사용자 설정으로 이름을 정할 땐 최대 20자 까지 입력이 가능하게끔 해 두었다. 
 
@@ -44,21 +44,24 @@
 
 
 
-<img width="279" alt="image" src="https://user-images.githubusercontent.com/105769152/230701269-16dbc4d7-4989-47ca-9403-515beb9184b6.png">
+<img width="283" alt="image" src="https://user-images.githubusercontent.com/105769152/230922231-2336f58a-673e-4dae-8144-9f7a714cd21c.png">
 
 *T를 입력했을 때*
 
 
 
-<img width="281" alt="image" src="https://user-images.githubusercontent.com/105769152/230701328-f8bc1477-a6a5-4c15-a658-9ab0b57ba68d.png">
+<img width="283" alt="image" src="https://user-images.githubusercontent.com/105769152/230922396-699c2a9b-3043-4551-87c1-0585d94b48b0.png">
 
 *F를 입력했을 때(또는 그 이외의 값 입력시)*
 
 
 # 
 <img width="485" alt="image" src="https://user-images.githubusercontent.com/105769152/230701416-9d4cdd35-9e04-4bfc-b2b0-0106ceeaf518.png">
+<img width="294" alt="image" src="https://user-images.githubusercontent.com/105769152/230922512-fe15cfa6-64d8-4b40-8355-9a28ba9e75c2.png">
+<img width="488" alt="image" src="https://user-images.githubusercontent.com/105769152/230922608-82a21d9a-92ee-4b63-a169-8a39dd0e654c.png">
 
-*( 처음에 2 를 입력시 출력되는 게임 정보 )*
+
+*( 처음에 2 를 입력시 출력되는 게임 정보와 캐릭터(또는 직업)별  )*
 
 
 
