@@ -108,7 +108,7 @@ void InformationShow(attribute character){
 }
 
 void Information(void){
-    printf("# # # # #\nGame Information\n");
+    printf("---------------------------------------------------------------------------------------\n# # # # #\nGame Information\n");
     printf("[...]\n"); // 자세한 설명 추가
 
     printf("\nRole Information");
@@ -122,7 +122,7 @@ void Information(void){
     printf("\n# # #\nMafia is a dark and dangerous character who specializes in using firearms as his weapons.\nHis strength and agility make him a formidable opponent in any battle.\nWith Mafia's mastery of firearms and combat, you can take on even the toughest opponents in the game.\nBut be warned, for Mafia's ruthlessness and cunning make him a dangerous enemy to cross.\n\n");
     
     printf("Build Information\n");
-    printf("[...]\n# # # # #"); // 자세한 설명 추가
+    printf("[...]\n# # # # #\n\n---------------------------------------------------------------------------------------"); // 자세한 설명 추가
 }
 
 #endif
