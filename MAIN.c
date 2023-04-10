@@ -77,6 +77,7 @@ void Init(void){
 }
 
 void Begin(void){
+    srand(time(NULL)); // 이걸 빼먹어서 다시 설
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
  
