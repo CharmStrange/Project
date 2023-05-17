@@ -1,7 +1,8 @@
 #include <stdio.h>
-#include "CHARACTERINFO.h"
-#include "NAME.h"
+#include "CHARACTERINFO.H"
+#include "NAME.H"
 #include "CHARACTERSTORY.H"
+#include "MONSTERS.H"
 
 attribute Character;
 
