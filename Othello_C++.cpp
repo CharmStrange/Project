@@ -261,6 +261,10 @@ int main() {
             cout << "말판의 크기가 너무 작습니다! 다시 입력해 주세요. " << endl;
             continue;
         }
+        else if (boardSize > 12) {
+            cout << "말판의 크기가 너무 큽니다! 다시 입력해 주세요. " << endl;
+            continue;
+        }
 
         break;
     }
