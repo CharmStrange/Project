@@ -247,7 +247,7 @@ void PrintStoneCount(const vector<vector<char>>& board) {
 
 // 컴퓨터의 차례에서 2초 대기하는 함수
 void Delay() {
-    std::this_thread::sleep_for(std::chrono::seconds(2));
+    this_thread::sleep_for(std::chrono::seconds(2));
 }
 
 int main() {
