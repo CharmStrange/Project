@@ -11,11 +11,11 @@
 
 먼저 기반 정보들을 **헤더 파일**로 만들어준 뒤 시작 **메인 파일**에서 불러와 사용한다.
 
-- [<캐릭터 정보와 게임 정보 헤더 파일>](CHARACTERINFO.h)
+- [<캐릭터 정보와 게임 정보 헤더 파일>](Headers/CHARACTERINFO.h)
 
-- [<캐릭터 이름 제작 헤더 파일>](NAME.H)
+- [<캐릭터 이름 제작 헤더 파일>](Headers/NAME.H)
 
-- [<캐릭터 스토리 정보 헤더 파일>](CHARACTERSTORY.h)
+- [<캐릭터 스토리 정보 헤더 파일>](Headers/CHARACTERSTORY.h)
 
 - [*메인 파일*](MAIN.c)
 
