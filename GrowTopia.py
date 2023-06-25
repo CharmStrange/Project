@@ -21,6 +21,7 @@ sell_keywords = ["sell"]
 buy_data = []
 sell_data = []
 
+# 데이터 수집 자동화 과정!
 with codecs.open(filename, "w", encoding="utf-8") as file:
     for page in range(start_page, end_page + 1):
         url = f"{base_url}/page{page}"
