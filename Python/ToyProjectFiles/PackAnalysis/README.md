@@ -44,6 +44,11 @@
 >]
 >```
 ><img width="790" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/3ea46a01-3976-4920-948d-2efc1b1d44ae">
-
-
 >
+## 2. R을 이용해 데이터의 분포와 특성을 찾아보기. 
+> ```R
+> # 위 데이터를 R로 옮겨 데이터프레임으로 저장해준다.
+> colnames(df) <- c('CC', 'D', 'GP', 'G', 'LR', 'MT', 'S', 'WB')
+> boxplot(df)
+> ```
+> <img width="311" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/09ac04a2-3cbd-40a5-b401-70856e10db08">
