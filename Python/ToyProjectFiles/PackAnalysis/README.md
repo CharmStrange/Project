@@ -4,9 +4,9 @@
 ---
 
 ## 1. 분석할 대상 정의, 데이터 구하기.
-- <img width="200" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/4cacda11-b826-40cb-bc20-fa01179ea1e6">
-- <img width="434" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/aea88d6d-1276-459d-b2a9-cb5c5d563ae9">
-
+> - <img width="200" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/4cacda11-b826-40cb-bc20-fa01179ea1e6">
+> - <img width="434" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/aea88d6d-1276-459d-b2a9-cb5c5d563ae9">
+>
 > 분석할 대상은 ***Basic Splicing Kit***, 1개 팩이 아닌 20개 팩을 Batch 단위 : *Purchase_n* 로 정하였고 팩의 내용물 시퀀스는 알파벳 순으로 정렬했다. 그것을 코드로 기록해 본 결과는 다음과 같다.
 >```
 >Columns = ['Cave Column Seed', 'Door Seed', 'Glass Pane Seed', 'Grass Seed', 'Lava Rock Seed', 'Martian >Tree Seed', 'Sign Seed', 'Wood Block Seed']
@@ -26,4 +26,7 @@
 >    [24, 17, 27, 27, 21, 36, 28, 20], # Purchase_11
 >    [31, 14, 29, 28, 22, 24, 29, 23] # Purchase_12
 >]
+>```
+><img width="791" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/9e7bf31b-5276-4f06-a7f8-e7456d210f50">
 
+>
