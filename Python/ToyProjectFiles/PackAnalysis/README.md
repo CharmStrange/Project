@@ -46,9 +46,19 @@
 ><img width="790" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/3ea46a01-3976-4920-948d-2efc1b1d44ae">
 >
 ## 2. R을 이용해 데이터의 분포와 특성을 찾아보기. 
+> 각 내용물이 1 Batch당 일정한 분포를 가지는지 확인하기 위해 잠시 R을 사용하겠다. 분포가 일정해야 재고 보충에 차질이 생기지 않으며 최소한의 자원으로 어떤 내용물이 얼마만큼 나올 지 예측이 가능하다.
 > ```R
 > # 위 데이터를 R로 옮겨 데이터프레임으로 저장해준다.
+> rownames(df) <- paste0("Purchase_", 1:25)
 > colnames(df) <- c('CC', 'D', 'GP', 'G', 'LR', 'MT', 'S', 'WB')
 > boxplot(df)
 > ```
 > <img width="311" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/09ac04a2-3cbd-40a5-b401-70856e10db08">
+>
+> 여기서 분포가 일정한지 확인하기 위해 **일원배치 분산분석**을 실시하겠다.
+> ```R
+> # 각 내용물 그룹의 평균이 동일한지 검정한다. 
+> # 귀무 가설은 '그룹의 평균이 모두 동일하다.' 이며 대립 가설은 '그룹의 평균이 모두 동일하지는 않다.' 이다.
+> 
+> 
+> ```
