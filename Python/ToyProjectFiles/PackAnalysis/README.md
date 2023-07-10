@@ -8,7 +8,7 @@
 > - <img width="434" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/aea88d6d-1276-459d-b2a9-cb5c5d563ae9">
 >
 > 분석할 대상은 ***Basic Splicing Kit***, 1개 팩이 아닌 20개 팩을 Batch 단위 : *Purchase_n* 로 정하였고 팩의 내용물 시퀀스는 알파벳 순으로 정렬했다. 그것을 코드로 기록해 본 결과는 다음과 같다.
->```
+>```python
 >Columns = ['Cave Column Seed', 'Door Seed', 'Glass Pane Seed', 'Grass Seed', 'Lava Rock Seed', 'Martian >Tree Seed', 'Sign Seed', 'Wood Block Seed']
 >Index = ['Purchase_1', 'Purchase_2', 'Purchase_3', 'Purchase_4', 'Purchase_5', 'Purchase_6', 'Purchase_7', >'Purchase_8', 'Purchase_9', 'Purchase_10', 'Purchase_11', 'Purchase_12']
 >
