@@ -55,10 +55,23 @@
 > ```
 > <img width="311" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/09ac04a2-3cbd-40a5-b401-70856e10db08">
 >
-> 여기서 분포가 일정한지 확인하기 위해 **일원배치 분산분석**을 실시하겠다.
+> 여기서 분포가 일정한지 확인하기 위해 평균을 다 구해주고 표로 나타내어 보았다.
 > ```R
-> # 각 내용물 그룹의 평균이 동일한지 검정한다. 
-> # 귀무 가설은 '그룹의 평균이 모두 동일하다.' 이며 대립 가설은 '그룹의 평균이 모두 동일하지는 않다.' 이다.
-> 
-> 
+>fit_CC <- mean(df$CC)
+>fit_D <- mean(df$D)
+>fit_GP <- mean(df$GP)
+>fit_G <- mean(df$G)
+>fit_LR <- mean(df$LR)
+>fit_MT <- mean(df$MT)
+>fit_S <- mean(df$S)
+>fit_WB <- mean(df$WB)
+>
+># 데이터 프레임 생성
+>mean_data <- data.frame(Variables = c('CC', 'D', 'GP', 'G', 'LR', 'MT', 'S', 'WB'),
+>                        Mean_Values = c(fit_CC, fit_D, fit_GP, fit_G, fit_LR, fit_MT, fit_S, fit_WB)
+>                        )
+># 표 출력
+>knitr::kable(mean_data, format = "markdown")
 > ```
+> <img width="122" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/480de1f6-2493-4e89-8c87-978f08e0210f">
+
