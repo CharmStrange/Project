@@ -99,4 +99,4 @@
 > ```
 > <img width="183" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/480de1f6-2493-4e89-8c87-978f08e0210f">
 > 
->
+> 평균은 25를 기준으로 조금 작거나 조금 큰 모습을 보인다. 따라서 1 Batch당 각 내용물의 평균 수는 25라고 가정할 수 있을 것이다.
