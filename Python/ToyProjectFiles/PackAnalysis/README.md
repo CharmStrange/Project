@@ -60,14 +60,14 @@
 >shapiro.test(df$WB)
 > ```
 >```lisp
->p-value = 0.4459
->p-value = 0.5129
->p-value = 0.7369
->p-value = 0.5695
->p-value = 0.1925
->p-value = 0.7586
->p-value = 0.1728
->p-value = 0.1398
+> >>> p-value = 0.4459
+> >>> p-value = 0.5129
+> >>> p-value = 0.7369
+> >>> p-value = 0.5695
+> >>> p-value = 0.1925
+> >>> p-value = 0.7586
+> >>> p-value = 0.1728
+> >>> p-value = 0.1398
 >```
 > 모든 *p-value*가 **유의수준 0.05**보다 작으므로 자료는 정규분포를 따른다.
 >
