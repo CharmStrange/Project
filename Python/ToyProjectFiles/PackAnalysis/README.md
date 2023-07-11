@@ -43,6 +43,7 @@
 >    [20, 25, 27, 24, 28, 24, 28, 24], # Purchase_25
 >]
 >```
+> [-> 실제 데이터셋 <-](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)
 ><img width="790" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/3ea46a01-3976-4920-948d-2efc1b1d44ae">
 >
 ## 2. R을 이용해 데이터의 분포와 특성을 찾아보기. 
