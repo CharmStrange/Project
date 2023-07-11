@@ -55,7 +55,31 @@
 > ```
 > <img width="311" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/09ac04a2-3cbd-40a5-b401-70856e10db08">
 >
-> 여기서 분포가 일정한지 확인하기 위해 평균을 다 구해주고 표로 나타내어 보았다.
+> ```R
+># 자료가 정규분포를 따르는지 확인하기
+> 
+>shapiro.test(df$CC)
+>shapiro.test(df$D)
+>shapiro.test(df$GP)
+>shapiro.test(df$G)
+>shapiro.test(df$LR)
+>shapiro.test(df$MT)
+>shapiro.test(df$S)
+>shapiro.test(df$WB)
+> ```
+>```lisp
+>p-value = 0.4459
+>p-value = 0.5129
+>p-value = 0.7369
+>p-value = 0.5695
+>p-value = 0.1925
+>p-value = 0.7586
+>p-value = 0.1728
+>p-value = 0.1398
+>```
+> 모든 *p-value*가 **유의수준 0.05**보다 작으므로 자료는 정규분포를 따른다.
+>
+> 다음으로 평균이 일정한지 확인하기 위해 표로 나타내어 보았다.
 > ```R
 >fit_CC <- mean(df$CC)
 >fit_D <- mean(df$D)
@@ -74,4 +98,5 @@
 >knitr::kable(mean_data, format = "markdown")
 > ```
 > <img width="183" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/480de1f6-2493-4e89-8c87-978f08e0210f">
-
+> 
+>
