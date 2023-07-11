@@ -48,14 +48,6 @@
 ## 2. R을 이용해 데이터의 분포와 특성을 찾아보기. 
 > 각 내용물이 1 Batch당 일정한 분포를 가지는지 확인하기 위해 잠시 R을 사용하겠다. 분포가 일정해야 재고 보충에 차질이 생기지 않으며 최소한의 자원으로 어떤 내용물이 얼마만큼 나올 지 예측이 가능하다.
 > ```R
-> # 위 데이터를 R로 옮겨 데이터프레임으로 저장해준다.
-> rownames(df) <- paste0("Purchase_", 1:25)
-> colnames(df) <- c('CC', 'D', 'GP', 'G', 'LR', 'MT', 'S', 'WB')
-> boxplot(df)
-> ```
-> <img width="311" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/09ac04a2-3cbd-40a5-b401-70856e10db08">
->
-> ```R
 ># 자료가 정규분포를 따르는지 확인하기
 > 
 >shapiro.test(df$CC)
@@ -89,7 +81,16 @@
 >fit_MT <- mean(df$MT)
 >fit_S <- mean(df$S)
 >fit_WB <- mean(df$WB)
+> ```
+> ```R
+> # 위 데이터를 R로 옮겨 데이터프레임으로 저장해준다.
+> rownames(df) <- paste0("Purchase_", 1:25)
+> colnames(df) <- c('CC', 'D', 'GP', 'G', 'LR', 'MT', 'S', 'WB')
+> boxplot(df)
+> ```
+> <img width="311" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/09ac04a2-3cbd-40a5-b401-70856e10db08">
 >
+>```R
 ># 데이터 프레임 생성
 >mean_data <- data.frame(Variables = c('CC', 'D', 'GP', 'G', 'LR', 'MT', 'S', 'WB'),
 >                        Mean_Values = c(fit_CC, fit_D, fit_GP, fit_G, fit_LR, fit_MT, fit_S, fit_WB)
@@ -100,3 +101,4 @@
 > <img width="183" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/480de1f6-2493-4e89-8c87-978f08e0210f">
 > 
 > 평균은 25를 기준으로 조금 작거나 조금 큰 모습을 보인다. 따라서 1 Batch당 각 내용물의 평균 수는 25라고 가정할 수 있을 것이다.
+>
