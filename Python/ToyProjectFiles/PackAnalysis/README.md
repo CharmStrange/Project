@@ -100,7 +100,7 @@
 >knitr::kable(mean_data, format = "markdown")
 > ```
 > <img width="180" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/2051eeeb-4c54-4072-83c0-32fccd8b48d6">
-
+>
 > 
 > 평균은 25를 기준으로 조금 작거나 조금 큰 모습을 보인다. 따라서 1 Batch당 각 내용물의 평균 수는 높은 확률로 25라고 가정할 수 있을 것이다.
 >
