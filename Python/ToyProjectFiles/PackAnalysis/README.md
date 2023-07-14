@@ -45,8 +45,8 @@
 >```
 > [-> 실제 데이터셋 <-](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)
 ><img width="790" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/3ea46a01-3976-4920-948d-2efc1b1d44ae">
->
-## 2. R을 이용해 데이터의 분포와 특성을 찾아보기. 
+
+## 2. R과 Python을 이용해 데이터의 분포와 특성을 찾아보기. 
 > 각 내용물이 1 Batch당 일정한 분포를 가지는지 확인하기 위해 잠시 R을 사용하겠다. 분포가 일정해야 재고 보충에 차질이 생기지 않으며 최소한의 자원으로 어떤 내용물이 얼마만큼 나올 지 예측이 가능하다.
 > ```R
 ># 자료가 정규분포를 따르는지 확인하기
@@ -104,3 +104,25 @@
 > 
 > 평균은 25를 기준으로 조금 작거나 조금 큰 모습을 보인다. 따라서 1 Batch당 각 내용물의 평균 수는 높은 확률로 25라고 가정할 수 있을 것이다.
 >
+>```Python
+># 그래프 스타일 설정
+>sns.set(style="whitegrid")
+>
+># 그래프 크기 설정
+>plt.figure(figsize=(12, 8))
+>
+># 다중 막대 그래프 겹쳐서 그리기
+>for i, column in enumerate(PackData_df.columns):
+>    sns.histplot(data=PackData_df[column], bins=10, color=sns.color_palette("pastel")[i], alpha=0.7, >label=column)
+>
+>plt.xlabel("Value")
+>plt.ylabel("Count")
+>plt.title("Multi-Bar Graph with Normal Distribution", fontsize="16")
+>plt.legend(title="Column", title_fontsize="12", loc="upper right")
+>plt.show()
+>```
+> <img width="758" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/be1e2daa-9f02-484c-b039-497aeadd104d">
+> 
+> 이로써 평균은 25에 확실히 근접한다고 결론지을수 있다
+
+## 3.
