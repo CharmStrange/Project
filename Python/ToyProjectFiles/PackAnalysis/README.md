@@ -125,6 +125,5 @@
 >```
 > <img width="758" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/be1e2daa-9f02-484c-b039-497aeadd104d">
 > 
-> 이로써 평균은 25에 확실히 근접한다고 결론지을수 있다
-
+> *Value*는 각 값들의 범위를, *Count*는 각 값의 빈도수를 나타낸다. 각 내용물들은 25 주변에 가장 많이, 고르게 분포되어 있으므로 역시 1 Batch당 각 내용물의 평균 수는 25일 것이다.
 ## 3.
