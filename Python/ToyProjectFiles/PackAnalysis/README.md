@@ -126,4 +126,63 @@
 > <img width="758" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/be1e2daa-9f02-484c-b039-497aeadd104d">
 > 
 > *Value*는 각 값들의 범위를, *Count*는 각 값의 빈도수를 나타낸다. 각 내용물들은 25 주변에 가장 많이, 고르게 분포되어 있으므로 역시 1 Batch당 각 내용물의 평균 수는 25일 것이다.
-## 3.
+## 3. 수요가 많은 내용물을 집중적으로 분석하기.
+>현재까지의 누적 판매량에 따르면 **'Grass Seed'**, **'Door Seed'**, **'Wood Block Seed'**, **'Glass Pane Seed'** 순서로 수요량이 가장 많다. 1 Batch당 나오는 내용물은 이들 이외에도 존재하기 때문에 이들을 제외한, 내용물이 포함된 총 비율에서 분석에 필요한 내용물들의 비율을 살펴보겠다.
+> ```python
+> # 우선순위 설정
+>priority = {
+>    'Grass Seed': 1,
+>    'Door Seed': 2,
+>    'Wood Block Seed': 3,
+>    'Glass Pane Seed': 4
+>}
+>
+> # 비율 계산을 위한 전체 합 계산
+>total_sum = PackData_df.sum().sum()
+>
+> # 우선순위에 따라 정렬
+>sorted_columns = sorted(priority, key=lambda x: priority[x])
+>
+># 결과 출력
+>print("비율:")
+>for i, column in enumerate(sorted_columns, start=1):
+>    ratio = (PackData_df[column].sum() / total_sum) * 100
+>    print(f"{i}. {column}: {ratio:.2f}%")
+> ```
+> <img width="274" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/07ddef90-bd34-4a9d-8ff1-ec67bc021906">
+>
+> 현재 데이터 스케일링을 진행하지 않은 상태의 결과로 위와 같은 결과가 나왔다. 데이터 스케일링을 진행해주면 결과가 바뀔 것이다.
+>
+>```python
+>from sklearn.preprocessing import MinMaxScaler
+>
+>scaler = MinMaxScaler()
+>scaled_PackData = scaler.fit_transform(PackData_df)
+>scaled_PackData_df = pd.DataFrame(scaled_PackData, columns=Columns, index=Index)
+>```
+>```python
+># 우선순위 설정
+>priority = {
+>    'Grass Seed': 1,
+>    'Door Seed': 2,
+>    'Wood Block Seed': 3,
+>    'Glass Pane Seed': 4
+>}
+>
+># 비율 계산을 위한 전체 합 계산
+>total_sum = scaled_PackData_df.sum().sum()
+>
+># 우선순위에 따라 정렬
+>sorted_columns = sorted(priority, key=lambda x: priority[x])
+>
+># 결과 출력
+>print("비율:")
+>for i, column in enumerate(sorted_columns, start=1):
+>    ratio = (scaled_PackData_df[column].sum() / total_sum) * 100
+>    print(f"{i}. {column}: {ratio:.2f}%")
+>```
+> `위 코드에서 PackData_df를 scaled_PackData_df로 변경`
+>
+><img width="321" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/da07b5dc-faaa-4f2f-ac73-5fcd93983b5e">
+>
+> 스케일링을 해 주지 않았을 땐 네 개 내용물의 비율이 모두 비슷한 정도로 나타났는데, 스케일링을 해 주니 각각 다르게 나타났다. 1 Batch당 해당하는 비율로 내용물이 나올 것을 기대할 수 있는데, 이 정보를 활용해 수익 최대화 가정 모델을 제작해 보겠다.
