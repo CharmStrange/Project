@@ -41,7 +41,7 @@
 >]
 >
 >Columns = ['Cave Column Seed', 'Door Seed', 'Glass Pane Seed', 'Grass Seed', 'Lava Rock Seed', 'Martian >Tree Seed', 'Sign Seed', 'Wood Block Seed']
->Index = ['Purchase_' + str(i) for i in range(1,len(PackData_df)+1)] 
+>Index = ['Purchase_' + str(i) for i in range(1,len(PackData)+1)] 
 >
 >PackData_df = pd.DataFrame(PackData, columns=Columns, index=Index)
 >```
