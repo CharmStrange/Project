@@ -12,9 +12,6 @@
 >```python
 >import pandas as pd
 >
->Columns = ['Cave Column Seed', 'Door Seed', 'Glass Pane Seed', 'Grass Seed', 'Lava Rock Seed', 'Martian >Tree Seed', 'Sign Seed', 'Wood Block Seed']
->Index = ['Purchase_' + str(i) for i in range(1,26)]
->
 >PackData = [
 >    [13, 23, 27, 18, 33, 36, 28, 22], # Purchase_1
 >    [22, 30, 28, 26, 22, 22, 27, 23], # Purchase_2
@@ -42,6 +39,11 @@
 >    [32, 23, 21, 22, 24, 28, 23, 27], # Purchase_24
 >    [20, 25, 27, 24, 28, 24, 28, 24], # Purchase_25
 >]
+>
+>Columns = ['Cave Column Seed', 'Door Seed', 'Glass Pane Seed', 'Grass Seed', 'Lava Rock Seed', 'Martian >Tree Seed', 'Sign Seed', 'Wood Block Seed']
+>Index = ['Purchase_' + str(i) for i in range(1,len(PackData_df)+1)] 
+>
+>PackData_df = pd.DataFrame(PackData, columns=Columns, index=Index)
 >```
 > [-> 실제 데이터셋 <-](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)
 ><img width="790" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/3ea46a01-3976-4920-948d-2efc1b1d44ae">
