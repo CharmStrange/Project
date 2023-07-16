@@ -98,5 +98,16 @@ PackData = [
     [28, 16, 25, 19, 29, 24, 36, 23], # Purchase_95 
     [30, 25, 23, 27, 22, 32, 20, 21], # Purchase_96 
     [22, 20, 23, 18, 24, 31, 33, 29], # Purchase_97 
-    [27, 19, 29, 23, 36, 20, 18, 28], # Purchase_98  
+    [27, 19, 29, 23, 36, 20, 18, 28], # Purchase_98
+    [], # Purchase_99
+    [], # Purchase_100  
+    [], # Purchase_101 
+    [], # Purchase_102  
+    [], # Purchase_103  
+    [], # Purchase_104  
+    [], # Purchase_105  
+    [], # Purchase_106  
+    [], # Purchase_107  
+    [], # Purchase_108  
+    [], # Purchase_109  
 ]
