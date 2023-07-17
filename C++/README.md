@@ -1,2 +1,2 @@
 # C++ Lab
-[Scaler File](C++/MinMaxScaler.cpp)
+[Scaler File](MinMaxScaler.cpp)
