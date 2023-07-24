@@ -4,6 +4,7 @@
 #include <algorithm>
 using namespace std;
 
+
 typedef struct{
     string CROP_NAME;
     string CROP_CATEGORY;
@@ -14,11 +15,13 @@ typedef struct{
     short CROP_ID;
 }CROPS;
 
+
 typedef struct{
     string CROP_NAME;
     short CROP_COUNT;
     short CROP_ID;
 }STORAGE;
+
 
 vector<CROPS> CROP_LIST = {
     {"Wheat", "Cereals", 1, 10, 27.3, false, 0},
@@ -96,6 +99,7 @@ vector<CROPS> CROP_LIST = {
     {"Oyster Mushroom", "Mushrooms", 4, 21, 41.4, false, 72},
 };
 
+
 class Farm;
 vector<Farm> FARM_INDEX;
 vector<Farm>::iterator FARM_INDEX_ITERATOR;
@@ -108,6 +112,7 @@ class Factory;
 vector<Factory> FACTORY_INDEX;
 vector<Factory>::iterator FACTORY_INDEX_ITERATOR;
 
+
 class Farm{
 private:
     vector<STORAGE> Storage;
@@ -115,10 +120,19 @@ private:
     
 public:
 
-    Farm() {}
+    static short FARM_ID_P_;
+
+    Farm() : FARM_ID(FARM_ID_P_++) {
+        FARM_INDEX.push_back(*this);
+    }
+    
+    short getFarmID() const {
+        return FARM_ID;
+    }
 
     ~Farm() {}
 };
+
 
 class Town{
 private:
@@ -126,23 +140,61 @@ private:
     
 public:
 
-    Town() {}
+    static short TOWN_ID_P_;
+
+    Town() : TOWN_ID(TOWN_ID_P_++) {
+        TOWN_INDEX.push_back(*this);
+    }
+    
+    short getTownID() const {
+        return TOWN_ID;
+    }
     
     ~Town() {}
 };
 
+
 class Factory{
 private:
-    short Factory_ID;
+    short FACTORY_ID;
     
 public:
 
-    Factory() {}
+    static short FACTORY_ID_P_;
+
+    Factory() : FACTORY_ID(FACTORY_ID_P_++) {
+        FACTORY_INDEX.push_back(*this);
+    }
+    
+    short getFactoryID() const {
+        return FACTORY_ID;
+    }
     
     ~Factory() {}
     
 };
 
-int main(){
+short Farm::FARM_ID_P_ = 1;
+short Town::TOWN_ID_P_ = 1;
+short Factory::FACTORY_ID_P_ = 1;
 
+int main(){
+    
+    Farm farm1;
+    Farm farm2;
+    
+    Town town1;
+    Town town2;
+    
+    Factory factory1;
+    Factory factory2;
+    
+    cout << "Farm ID: " << farm1.getFarmID() << endl;
+    cout << "Farm ID: " << farm2.getFarmID() << endl;
+    
+    cout << "Town ID: " << town1.getTownID() << endl;
+    cout << "Town ID: " << town2.getTownID() << endl;
+    
+    cout << "Factory ID: " << factory1.getFactoryID() << endl;
+    cout << "Factory ID: " << factory2.getFactoryID() << endl;
 }
