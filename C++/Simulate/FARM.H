@@ -107,9 +107,11 @@ class Farm;
 vector<Farm> FARM_INDEX;
 vector<Farm>::iterator FARM_INDEX_ITERATOR;
 
+
 class Town;
 vector<Town> TOWN_INDEX;
 vector<Town>::iterator TOWN_INDEX_ITERATOR;
+
 
 class Factory;
 vector<Factory> FACTORY_INDEX;
@@ -118,6 +120,7 @@ vector<Factory>::iterator FACTORY_INDEX_ITERATOR;
 
 class Farm{
 private:
+
     vector<STORAGE> Storage;
     short FARM_ID;
     
@@ -139,6 +142,7 @@ public:
 
 class Town{
 private:
+
     short TOWN_ID;
     
 public:
@@ -159,6 +163,7 @@ public:
 
 class Factory{
 private:
+
     short FACTORY_ID;
     
 public:
