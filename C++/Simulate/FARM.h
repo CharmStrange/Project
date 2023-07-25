@@ -1,5 +1,5 @@
-#ifndef FARM.h
-# define FARM.h
+#ifndef FARM_h
+# define FARM_h
 
 # include <iostream>
 # include <string>
