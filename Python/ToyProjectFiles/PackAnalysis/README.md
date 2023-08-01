@@ -1,6 +1,6 @@
 # 실전 데이터 분석 
 
-### [1차 데이터 회귀 분석](https://github.com/CharmStrange/Snippet/blob/main/Python/READMES/README_GrowTopia_STAT.md)에 이어, 판매 물품과 관련된 데이터 분석을 해 보려 한다. 이는 재고 보충을 더욱 효율적으로 할 수 있게 도와줄 것이며 판매량과 직접적인 연관이 있기 때문에 수익 최대화에 도움이 될 것이다.
+### [1차 데이터 회귀 분석](https://github.com/CharmStrange/Study/blob/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/MachineLearning/READMES/README_GrowTopia_STAT.md)에 이어, 판매 물품과 관련된 데이터 분석을 해 보려 한다. 이는 재고 보충을 더욱 효율적으로 할 수 있게 도와줄 것이며 판매량과 직접적인 연관이 있기 때문에 수익 최대화에 도움이 될 것이다.
 ---
 
 ## 1. 분석할 대상 정의, 데이터 구하기.
