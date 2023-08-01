@@ -45,3 +45,54 @@
 > >>> 83.39999999999998
 > >>> 9.200000000000003
 > ```
+
+> ### [데이터셋](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)을 활용한 수익 최대화 모델 구조를 정의한다.
+>
+> ->[데이터셋](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)<- 을 기반으로, 1 batch 당 내용물의 평균 수를 구한 뒤 모델의 파라미터에 넣어준다.
+> ```Python
+># 시세 변수
+>High = 50
+>Middle = 100
+>Middle_Low = 150
+>Low = 200
+>
+>class ProfitMaximizer:
+>
+>    def __init__(self, GR, D, W, GL) : # GR, D, W, GL 에 1 batch 에서 기대되는 내용물 수 넣기 
+>        self.GR = GR
+>        self.D = D
+>        self.W = W
+>        self.GL = GL
+>
+>    def Fit(self, batch_size) :
+>        if ((self.GR * batch_size) // Low) : print("Profitable : Grass Seed\n") 
+>        else : print("Non-Profitable : Grass Seed\n")
+>
+>        if ((self.D * batch_size) // Middle) : print("Profitable : Door Seed\n") 
+>        else : print("Non-Profitable : Door Seed\n")
+>
+>        if ((self.W * batch_size) // Low) : print("Profitable : Wood Block Seed\n") 
+>        else : print("Non-Profitable : Wood Seed\n")
+>
+>        if ((self.GL * batch_size) // Middle) : print("Profitable : Glass Pane Seed\n") 
+>        else : print("Non-Profitable : Glass Pane Seed\n")
+>
+>    def remain(self, batch_size) :
+>        GR_r = (self.GR * batch_size) % Low
+>        D_r = (self.D * batch_size) % Middle
+>        W_r = (self.W * batch_size) % Low
+>        GL_r = (self.GL * batch_size) % Middle
+>
+>        print(f"Grass Seed : {GR_r}\n")
+>        print(f"Door Seed : {D_r}\n")
+>        print(f"Wood Block Seed : {W_r}\n")
+>        print(f"Glass Pane Seed : {GL_r}\n")
+> ```
+> ```Python
+> test = ProfitMaximizer(18, 27, 22, 25)
+> test.Fit(11)
+> test.remain(9)
+> ```
+> <img width="294" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/d1d9ec41-94ed-4a7f-833f-e95121165f5f">
+>
+> 현재 나머지를 구하는 메소드의 추가 수정이 필요한 상태이다.
