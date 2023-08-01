@@ -185,4 +185,4 @@
 >
 ><img width="321" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/da07b5dc-faaa-4f2f-ac73-5fcd93983b5e">
 >
-> 스케일링을 해 주지 않았을 땐 네 개 내용물의 비율이 모두 비슷한 정도로 나타났는데, 스케일링을 해 주니 각각 다르게 나타났다. 1 Batch당 해당하는 비율로 내용물이 나올 것을 기대할 수 있는데, 이 정보를 활용해 수익 최대화 가정 모델을 제작해 보겠다.
+> 스케일링을 해 주지 않았을 땐 네 개 내용물의 비율이 모두 비슷한 정도로 나타났는데, 스케일링을 해 주니 각각 다르게 나타났다. 1 Batch당 해당하는 비율로 내용물이 나올 것을 기대할 수 있는데, 이 정보를 활용해 [수익 최대화 가정 모델](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/ProfitMaximize/README.md)을 제작해 보겠다.
