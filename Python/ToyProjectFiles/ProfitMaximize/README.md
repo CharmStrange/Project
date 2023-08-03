@@ -97,8 +97,8 @@
 > ```
 > ```Python
 > test = ProfitMaximizer(18, 27, 22, 25)
-> test.Fit(11)
-> test.remain(9)
+> test.Fit(5)
+> test.remain(5)
 > ```
 > <img width="318" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/0c2cc347-d8cb-4930-8b6a-9a6a4af69510">
 
