@@ -83,16 +83,24 @@
 >        W_r = (self.W * batch_size) % Low
 >        GL_r = (self.GL * batch_size) % Middle
 >
->        print(f"Grass Seed : {GR_r}\n")
->        print(f"Door Seed : {D_r}\n")
->        print(f"Wood Block Seed : {W_r}\n")
->        print(f"Glass Pane Seed : {GL_r}\n")
+>        if ((self.GR * batch_size) // Low) : print(f"Grass Seed : {GR_r}\n")
+>        else : print("No remains!\n")
+>
+>        if ((self.D * batch_size) // Middle) : print(f"Door Seed : {D_r}\n")
+>        else : print("No remains!\n")
+>
+>        if ((self.W * batch_size) // Low) : print(f"Wood Block Seed : {W_r}\n")
+>        else : print("No remains!\n")
+>
+>        if ((self.GL * batch_size) // Middle) : print(f"Glass Pane Seed : {GL_r}\n")
+>        else : print("No remains!\n")
 > ```
 > ```Python
 > test = ProfitMaximizer(18, 27, 22, 25)
 > test.Fit(11)
 > test.remain(9)
 > ```
-> <img width="294" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/d1d9ec41-94ed-4a7f-833f-e95121165f5f">
+> <img width="318" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/0c2cc347-d8cb-4930-8b6a-9a6a4af69510">
+
 >
-> 현재 나머지를 구하는 메소드의 추가 수정이 필요한 상태이다.
+>
