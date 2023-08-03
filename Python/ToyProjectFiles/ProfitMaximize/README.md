@@ -48,7 +48,7 @@
 
 > ### [데이터셋](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)을 활용한 수익 최대화 모델 구조를 정의한다.
 >
-> ->[데이터셋](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)<- 을 기반으로, 1 batch 당 내용물의 평균 수를 구한 뒤 모델의 파라미터에 넣어준다.
+> ->[데이터셋](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)<- 을 기반으로, 1 batch 당 내용물의 수를 구한 뒤 모델의 파라미터에 넣어주어야 한한다.
 > ```Python
 ># 시세 변수
 >High = 50
@@ -102,5 +102,23 @@
 > ```
 > <img width="318" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/0c2cc347-d8cb-4930-8b6a-9a6a4af69510">
 
+> ### [Data Maker](DataMaker.py)로 테스트를 진행해 본다.
+> 
+> 아래 코드는 [기존 데이터셋](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)을 바탕으로 새로운 데이터를 만들어주는 코드의 주요 알고리즘이며 결과를 바탕으로 모델을 테스트해본다.
+> ```Python
+> # 기존 데이터셋 각 열의 평균과 표준 편차 계산
+> mean_values = [sum(col) / len(col) for col in zip(*PackData)]
+> std_values = [((sum((x - mean) ** 2 for x in col) / len(col)) ** 0.5) for col, mean in zip(zip(*PackData), mean_values)]
 >
+> # 새로운 데이터 생성
+> new_data = [random.normalvariate(mean, std) for mean, std in zip(mean_values, std_values)]
+> ```
+> ```Python
+> test = ProfitMaximizer(filtered_new_data[2], filtered_new_data[0], filtered_new_data[3], filtered_new_data[1])
+> test.Fit(9)
+> test.remain(9)
+> ```
+> 파라미터에 값을 전달할 때 2, 0, 3, 1 순으로 주어야 올바른 결과가 나온다(데이터셋은 알파벳 순으로 정렬, 가공한 데이터는 수요 순으로 정렬되었기 때문에 순서가 다르기 때문). 
+> <img width="446" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/d139bc43-3d99-4857-b1cc-254317387d28">
 >
+> 
