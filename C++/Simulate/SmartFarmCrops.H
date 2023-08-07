@@ -122,6 +122,8 @@ public:
     Crop() {}
 };
 
+vector<Crop> crop_storage;
+
 class ControlCenterUnit {
 public:
     ControlCenterUnit() {}
