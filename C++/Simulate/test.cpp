@@ -26,7 +26,7 @@ int main(){
     */
 
     /*
-    Farm farm;
+    FarmControl farm;
 
     Crop wheat("Wheat", 5);
     Crop corn("Corn", 4);
