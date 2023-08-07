@@ -118,10 +118,14 @@ public:
             cout << name << " is not ready for harvest yet.\n";
         }
     }
+
+    Crop() {}
 };
 
 class ControlCenterUnit {
 public:
+    ControlCenterUnit() {}
+
     void checkCropStatus(const Crop& crop) {
         cout << crop.name << " - ";
         switch (crop.status) {
@@ -147,6 +151,8 @@ public:
             cout << "Cannot water " << crop.name << " at the moment.\n";
         }
     }
+
+    ~ControlCenterUnit() {}
 };
 
 class Farm {
