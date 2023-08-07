@@ -155,12 +155,12 @@ public:
     ~ControlCenterUnit() {}
 };
 
-class Farm {
+class FarmControl {
 private:
     vector<Crop> crops;
 
 public:
-    Farm() {}
+    FarmControl() {}
 
     void plantCrop(Crop crop) {
         crops.push_back(crop);
@@ -197,7 +197,7 @@ public:
         }
     }
     
-    ~Farm() {}
+    ~FarmControl() {}
 };
 
 #endif
