@@ -26,23 +26,23 @@ int main(){
     */
 
     /*
-    FarmControl farm;
+    FarmControl farmcontrol;
 
     Crop wheat("Wheat", 5);
     Crop corn("Corn", 4);
     Crop tomato("Tomato", 3);
 
-    farm.plantCrop(wheat);
-    farm.plantCrop(corn);
-    farm.plantCrop(tomato);
+    farmcontrol.plantCrop(wheat);
+    farmcontrol.plantCrop(corn);
+    farmcontrol.plantCrop(tomato);
 
-    farm.advanceTime();
-    farm.advanceTime();
-    farm.advanceTime();
+    farmcontrol.advanceTime();
+    farmcontrol.advanceTime();
+    farmcontrol.advanceTime();
 
-    farm.displayCrops();
+    farmcontrol.displayCrops();
 
     // Simulate watering
-    farm.waterCrops();
+    farmcontrol.waterCrops();
     */
 }
