@@ -196,7 +196,30 @@ public:
             ccu.waterCrop(crop);
         }
     }
-    
+
+    void plowup() {
+        if (crops.empty()) {
+            cout << "Cannot Plow Up! There are no crops to plow.\n";
+            return;
+        }
+
+        string cropNameToRemove;
+        cout << "Enter the name of the crop you want to plow up: ";
+        cin >> cropNameToRemove;
+
+        auto it = std::remove_if(crops.begin(), crops.end(),
+                                 [cropNameToRemove](const Crop& crop) {
+                                     return crop.name == cropNameToRemove;
+                                 });
+
+        if (it != crops.end()) {
+            cout << "Plowed up the selected crop: " << it->name << "\n";
+            crops.erase(it, crops.end());
+        } else {
+            cout << "Crop with name " << cropNameToRemove << " not found.\n";
+        }
+    }
+
     ~FarmControl() {}
 };
 
