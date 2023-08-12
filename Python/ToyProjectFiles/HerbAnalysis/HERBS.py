@@ -1,3 +1,25 @@
+# 7종
+Herbs = [
+    "Blinkroot",
+    "Daybloom",
+    "Deathweed",
+    "Fireblossom",
+    "Moonglow",
+    "Shiverthorn",
+    "Waterleaf"
+]
+
+# 7종
+Herb_Seeds = [
+    "Blinkroot Seed",
+    "Daybloom Seed",
+    "Deathweed Seed",
+    "Fireblossom Seed",
+    "Moonglow Seed",
+    "Shiverthorn Seed",
+    "Waterleaf Seed"
+]
+
 # 20번
 
 Herbs_Data = [
