@@ -48,7 +48,7 @@
 
 > ### [데이터셋](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)을 활용한 수익 최대화 모델 구조를 정의한다.
 >
-> ->[데이터셋](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)<- 을 기반으로, 1 batch 당 내용물의 수를 구한 뒤 모델의 파라미터에 넣어주어야 한한다.
+> ->[데이터셋](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)<- 을 기반으로, 1 batch 당 내용물의 수를 구한 뒤 모델의 파라미터에 넣어주어야 한다.
 > ```Python
 ># 시세 변수 : 시세 변동이 있을 수 있으므로 상황에 따라 값을 바꾸기 위해 필요
 >High = 50
@@ -161,7 +161,7 @@
 >plt.show()
 > ```
 > <img width="598" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/0b14af7c-d0fb-4270-a918-edfa7fee36c6">
-
+>
 >
 > ```Python
 ># 필요한 아이템만 추출, 나머지 아이템은 특정 시기나 경우에 수요가 있으므로 일단 둠
@@ -172,9 +172,14 @@
 > test.Fit(9)
 > test.remain(9)
 > ```
-> 파라미터에 값을 전달할 때 2, 0, 3, 1 순으로 주어야 올바른 결과가 나온다(데이터셋은 알파벳 순으로 정렬, 가공한 데이터는 수요 순으로 정렬되었기 때문에 순서가 다르기 때문). 
+> 테스트 시, 파라미터에 값을 전달할 때 2, 0, 3, 1 순으로 주어야 올바른 결과가 나온다(데이터셋은 알파벳 순으로 정렬, 가공한 데이터는 수요 순으로 정렬되었기 때문에 순서가 다르기 때문). 
 >
 > <img width="440" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/bd9ce7d0-92dc-48f7-bf50-132708871473">
 
->
+> ### 최종적으로 제작된 모델은 다음과 같다.
+> 사용자는 자신이 투자한, 이익을 얻을 수 있는 최소 비용만큼의 `batch size`(기본적으로 1이 기준) 와, `batch size`에 해당하는 각 내용물 `Grass Seed`, `Door Seed`, `Wood Block Seed`, `Glass Pane Seed`의 개수를 알아야 한다.
 > 
+> ```Python
+> First_Pack = ProfitMaximizer(10, 28, 15, 25)
+> ```
+> 위와 같은 경우 각 내용물의 개수가 10, 28, 15, 25 이며 `First_Pack` 객체는 한 번의 재고 보충을 의미한다고 이해할 수 있다. `batch size`를 어떻게 정의하느냐에 따라, 재고 보충과 수익 계산을 다르게 할 수 있다.
