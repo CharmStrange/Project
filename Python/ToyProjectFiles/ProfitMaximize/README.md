@@ -113,6 +113,33 @@
 > # 새로운 데이터 생성
 > new_data = [random.normalvariate(mean, std) for mean, std in zip(mean_values, std_values)]
 > ```
+> 위 코드를 사용해 생성한 데이터셋의 분포를 확인하기 위해 상자 도표를 그린다.
+> ```Python
+># 생성된 데이터의 분포를 확인
+> import matplotlib.pyplot as plt
+>import seaborn as sns
+>
+> Data = [...]
+> 
+># 관심 있는 항목의 인덱스
+>item_indices = [0, 1, 2, 3]  # [Door Seed, Glass Pane Seed, Grass Seed, Wood Seed]
+>
+># 관심 있는 항목의 이름
+>item_names = ['Door Seed', 'Glass Pane Seed', 'Grass Seed', 'Wood Seed']
+>
+># 관심 있는 항목의 데이터 추출
+>item_data = [[data_point[i] for data_point in Data] for i in item_indices]
+>
+># 데이터 분포 시각화
+>plt.figure(figsize=(10, 6))
+>sns.boxplot(data=item_data)
+>plt.xticks(ticks=range(len(item_names)), labels=item_names)
+>plt.title('Data Distribution for Specific Items')
+>plt.ylabel('Values')
+>plt.show()
+> ```
+> <img width="592" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/9a9dece5-ece6-419c-8b50-5678deee6bc1">
+>
 > ```Python
 ># 필요한 아이템만 추출, 나머지 아이템은 특정 시기나 경우에 수요가 있으므로 일단 둠
 >index = [1, 2, 3, 7]
