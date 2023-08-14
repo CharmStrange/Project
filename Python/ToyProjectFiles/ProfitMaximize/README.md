@@ -150,6 +150,7 @@
 > test.remain(9)
 > ```
 > 파라미터에 값을 전달할 때 2, 0, 3, 1 순으로 주어야 올바른 결과가 나온다(데이터셋은 알파벳 순으로 정렬, 가공한 데이터는 수요 순으로 정렬되었기 때문에 순서가 다르기 때문). 
+>
 > <img width="446" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/d139bc43-3d99-4857-b1cc-254317387d28">
 >
 > 
