@@ -94,13 +94,35 @@
 >
 >        if ((self.GL * batch_size) // Middle) : print(f"Glass Pane Seed : {GL_r}\n")
 >        else : print("No remains!\n")
+>
+>    def MeanCmp(self) :
+>        meancmp_GR = means[0] - self.GR
+>        meancmp_D = means[1] - self.D
+>        meancmp_W = means[2] - self.W
+>        meancmp_GL = means[3] - self.GL
+>
+>        print(f"Difference between the mean of Grass Seeds and {self.GR} : {meancmp_GR}")
+>        print(f"Square of the difference between the mean of Grass Seeds and {self.GR} : {meancmp_GR**2}\n")
+>
+>        print(f"Difference between the mean of Door Seeds and {self.D} : {meancmp_D}")
+>        print(f"Square of the difference between the mean of Door Seeds and {self.D} : {meancmp_D**2}\n")
+>
+>        print(f"Difference between the mean of Wood Block Seeds and {self.W} : {meancmp_W}")
+>        print(f"Square of the difference between the mean of Wood Block Seeds and {self.W} : {meancmp_W**2}\n")
+>
+>        print(f"Difference between the mean of Grass Seeds and {self.GL} : {meancmp_GL}")
+>        print(f"Square of the difference between the mean of Glass Pane Seeds and {self.GL} : {meancmp_GL**2}\n")
 > ```
 > ```Python
 > test = ProfitMaximizer(18, 27, 22, 25)
 > test.Fit(5)
 > test.remain(5)
+> test.MeanCmp()
 > ```
-> <img width="318" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/0c2cc347-d8cb-4930-8b6a-9a6a4af69510">
+> <img width="464" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/536f8667-7ad1-42d7-add5-6c6e49b3133e">
+>
+> <img width="675" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/b2200dc3-9c82-4ba9-acac-6ff6e508b71c">
+
 
 > ### [Data Maker](DataMaker.py)로 테스트를 진행해 본다.
 > 
@@ -138,7 +160,8 @@
 >plt.ylabel('Values')
 >plt.show()
 > ```
-> <img width="592" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/9a9dece5-ece6-419c-8b50-5678deee6bc1">
+> <img width="598" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/0b14af7c-d0fb-4270-a918-edfa7fee36c6">
+
 >
 > ```Python
 ># 필요한 아이템만 추출, 나머지 아이템은 특정 시기나 경우에 수요가 있으므로 일단 둠
@@ -151,6 +174,7 @@
 > ```
 > 파라미터에 값을 전달할 때 2, 0, 3, 1 순으로 주어야 올바른 결과가 나온다(데이터셋은 알파벳 순으로 정렬, 가공한 데이터는 수요 순으로 정렬되었기 때문에 순서가 다르기 때문). 
 >
-> <img width="446" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/d139bc43-3d99-4857-b1cc-254317387d28">
+> <img width="440" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/bd9ce7d0-92dc-48f7-bf50-132708871473">
+
 >
 > 
