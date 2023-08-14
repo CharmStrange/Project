@@ -50,7 +50,7 @@
 >
 > ->[데이터셋](https://github.com/CharmStrange/Project/blob/main/Python/ToyProjectFiles/PackAnalysis/PackData.py)<- 을 기반으로, 1 batch 당 내용물의 수를 구한 뒤 모델의 파라미터에 넣어주어야 한한다.
 > ```Python
-># 시세 변수
+># 시세 변수 : 시세 변동이 있을 수 있으므로 상황에 따라 값을 바꾸기 위해 필요
 >High = 50
 >Middle = 100
 >Middle_Low = 150
