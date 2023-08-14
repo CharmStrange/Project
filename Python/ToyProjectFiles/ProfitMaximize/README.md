@@ -114,6 +114,10 @@
 > new_data = [random.normalvariate(mean, std) for mean, std in zip(mean_values, std_values)]
 > ```
 > ```Python
+># 필요한 아이템만 추출, 나머지 아이템은 특정 시기나 경우에 수요가 있으므로 일단 둠
+>index = [1, 2, 3, 7]
+>filtered_new_data = [new_data[i] for i in index] 
+>
 > test = ProfitMaximizer(filtered_new_data[2], filtered_new_data[0], filtered_new_data[3], filtered_new_data[1])
 > test.Fit(9)
 > test.remain(9)
