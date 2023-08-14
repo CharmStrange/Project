@@ -1,4 +1,4 @@
-# [Door Seed, Glass Pane Seed, Grass Seed, Wood Seed]
+# [Door Seed, Glass Pane Seed, Grass Seed, Wood Block Seed]
 
 Data = [
     [35.076126706354465, 31.306577989932215, 29.236230589129498, 32.99301831988764],
