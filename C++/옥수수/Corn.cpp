@@ -9,13 +9,17 @@ class Corn{
     Corn_Status CS;
     vector<short> Corn_Kernel;
     vector<short>::iterator Corn_Kernel_Finder;
+    unsigned short Corn_Kernel;
     
 public:
+
     Corn() : CS(Corn_Status::Soso) {
         cout << "Hello! I'm a Corn!! My name is " << this << endl;
     }
     
-    void Nutrient_Supply() {}
+    void Nutrient_Supply() {
+        Corn_Kernels.push_back(Corn_Kernel);
+    }
     
     void Take_Kernel() {}
     
