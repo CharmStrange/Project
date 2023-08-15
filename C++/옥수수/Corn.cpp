@@ -21,7 +21,9 @@ public:
         Corn_Kernels.push_back(Corn_Kernel);
     }
     
-    void Take_Kernel() {}
+    void Take_Kernel() {
+        Corn_Kernels.pop_back();
+    }
     
     ~Corn() {}
     
