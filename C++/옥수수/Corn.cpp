@@ -7,7 +7,7 @@ enum class Corn_Status {Bad, Soso, Good};
 class Corn{
     
     Corn_Status CS;
-    vector<short> Corn_Kernel;
+    vector<short> Corn_Kernels;
     vector<short>::iterator Corn_Kernel_Finder;
     unsigned short Corn_Kernel;
     
