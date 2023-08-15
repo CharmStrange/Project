@@ -18,8 +18,17 @@ public:
     }
     
     void Nutrient_Supply() {
-        Corn_Kernels.push_back(Corn_Kernel);
+        Corn_Kernels.push_back(++Corn_Kernel);
     }
+    
+    void View_Kernels() {
+        cout << "Corn Kernels:" << endl;
+        for (Corn_Kernel_Finder = Corn_Kernels.begin(); Corn_Kernel_Finder != Corn_Kernels.end(); ++Corn_Kernel_Finder) {
+            cout << *Corn_Kernel_Finder << " ";
+        }
+        cout << endl;
+    }
+
     
     void Take_Kernel() {
         Corn_Kernels.pop_back();
@@ -31,5 +40,18 @@ public:
 
 int main() {
     Corn corn1;
+    for (int i = 0; i < 5; ++i) {
+        corn1.Nutrient_Supply();
+    }
+    corn1.View_Kernels();
+    corn1.Take_Kernel();
+    
+    cout << endl;
+    
     Corn corn2;
+    for (int i = 0; i < 5; ++i) {
+        corn2.Nutrient_Supply();
+    }
+    corn2.View_Kernels();
+    corn2.Take_Kernel();
 }
