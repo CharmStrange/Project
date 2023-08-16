@@ -55,6 +55,7 @@
 >Middle = 100
 >Middle_Low = 150
 >Low = 200
+> remainsContainer = [ [], [], [], [] ]
 >
 >class ProfitMaximizer:
 >
@@ -83,18 +84,20 @@
 >        W_r = (self.W * batch_size) % Low
 >        GL_r = (self.GL * batch_size) % Middle
 >
->        if ((self.GR * batch_size) // Low) : print(f"Grass Seed : {GR_r}\n")
+>        if ((self.GR * batch_size) // Low) : print(f"Grass Seed : {GR_r}\n"); remainsContainer[0].append(GR_r);
 >        else : print("No remains!\n")
 >
->        if ((self.D * batch_size) // Middle) : print(f"Door Seed : {D_r}\n")
+>        if ((self.D * batch_size) // Middle) : print(f"Door Seed : {D_r}\n"); remainsContainer[1].append(D_r);
 >        else : print("No remains!\n")
 >
->        if ((self.W * batch_size) // Low) : print(f"Wood Block Seed : {W_r}\n")
+>        if ((self.W * batch_size) // Low) : print(f"Wood Block Seed : {W_r}\n"); remainsContainer[2].append(W_r);
 >        else : print("No remains!\n")
 >
->        if ((self.GL * batch_size) // Middle) : print(f"Glass Pane Seed : {GL_r}\n")
+>        if ((self.GL * batch_size) // Middle) : print(f"Glass Pane Seed : {GL_r}\n"); remainsContainer[3].append(GL_r);
 >        else : print("No remains!\n")
 >
+>        print("Total remains : ", remainsContainer[0], remainsContainer[1], remainsContainer[2], remainsContainer[3], "\n")
+> 
 >    def MeanCmp(self) :
 >        meancmp_GR = means[0] - self.GR
 >        meancmp_D = means[1] - self.D
@@ -121,7 +124,7 @@
 > ```
 > <img width="464" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/536f8667-7ad1-42d7-add5-6c6e49b3133e">
 >
-> <img width="675" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/b2200dc3-9c82-4ba9-acac-6ff6e508b71c">
+> <img width="775" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/b2200dc3-9c82-4ba9-acac-6ff6e508b71c">
 
 
 > ### [Data Maker](DataMaker.py)로 테스트를 진행해 본다.
@@ -183,3 +186,22 @@
 > First_Pack = ProfitMaximizer(10, 28, 15, 25)
 > ```
 > 위와 같은 경우 각 내용물의 개수가 10, 28, 15, 25 이며 `First_Pack` 객체는 한 번의 재고 보충을 의미한다고 이해할 수 있으며, `batch size`를 어떻게 정의하느냐에 따라, 재고 보충과 수익 계산을 다르게 할 수 있다. 또 클래스의 메소드를 통해 부수적인 계산도 할 수 있다.
+> ```Python
+> test = [element for pack in test_Data for element in pack]
+>
+>test_Pack_1 = ProfitMaximizer(test[0], test[1], test[2], test[3])
+>test_Pack_1.Fit(8)
+>
+>test_Pack_2 = ProfitMaximizer(test[5], test[6], test[7], test[8])
+>test_Pack_2.Fit(8)
+>
+>test_Pack_3 = ProfitMaximizer(test[9], test[10], test[11], test[12])
+>test_Pack_3.Fit(8)
+>
+>test_Pack_4 = ProfitMaximizer(test[13], test[14], test[15], test[16])
+>test_Pack_4.Fit(8)
+>
+>test_Pack_5 = ProfitMaximizer(test[17], test[18], test[19], test[20])
+>test_Pack_5.Fit(8)
+> ```
+> <img width="725" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/6b900d44-e896-4d2c-a7ab-429231cd2186">
