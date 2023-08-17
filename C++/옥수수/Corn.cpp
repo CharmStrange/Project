@@ -49,8 +49,21 @@ public:
     
 };
 
+vector<Corn> Corn_List;
+vector<Corn>::iterator Corn_List_Finder;
+
+Corn New_Corn() {
+    Corn corn;
+    Corn_List.push_back(corn);
+    return corn;
+}
+
+void View_Corns() {
+    cout << "Corns : "<< Corn_List.size() << endl;
+}
+
 int main() {
-    
+    /*
     Corn corn1;
     for (int i = 0; i < 3; ++i) {
         corn1.Nutrient_Supply();
@@ -72,5 +85,11 @@ int main() {
     corn2.Take_Kernel();
     corn2.View_Kernels();
     corn2.Corn_Status();
+    */
     
+    New_Corn();
+    New_Corn();
+    New_Corn();
+    View_Corns();
+
 }
