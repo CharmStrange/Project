@@ -18,5 +18,5 @@ for line in lines:
 # 많이 사용된 명사 출력
 keys = sorted(word_dic.items(), key=lambda x: x[1], reverse=True)
 for word, count in keys[:50]:
-    print("{0}({1})".format(word, count), end="")
+    print("{0}({1})\n".format(word, count), end="")
 print()
