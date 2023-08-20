@@ -204,4 +204,7 @@
 >test_Pack_5 = ProfitMaximizer(test[17], test_data[18], test_data[19], test_data[20])
 >test_Pack_5.Fit(8)
 > ```
+>
+> ([test_Data 변수](Data.py))
+>
 > <img width="725" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/6b900d44-e896-4d2c-a7ab-429231cd2186">
