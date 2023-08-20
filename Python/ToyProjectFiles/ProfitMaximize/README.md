@@ -187,21 +187,21 @@
 > ```
 > 위와 같은 경우 각 내용물의 개수가 10, 28, 15, 25 이며 `First_Pack` 객체는 한 번의 재고 보충을 의미한다고 이해할 수 있으며, `batch size`를 어떻게 정의하느냐에 따라, 재고 보충과 수익 계산을 다르게 할 수 있다. 또 클래스의 메소드를 통해 부수적인 계산도 할 수 있다.
 > ```Python
-> test = [element for pack in test_Data for element in pack]
+> test_data = [element for pack in test_Data for element in pack]
 >
->test_Pack_1 = ProfitMaximizer(test[0], test[1], test[2], test[3])
+>test_Pack_1 = ProfitMaximizer(test_data[0], test_data[1], test_data[2], test_data[3])
 >test_Pack_1.Fit(8)
 >
->test_Pack_2 = ProfitMaximizer(test[5], test[6], test[7], test[8])
+>test_Pack_2 = ProfitMaximizer(test[5], test_data[6], test_data[7], test_data[8])
 >test_Pack_2.Fit(8)
 >
->test_Pack_3 = ProfitMaximizer(test[9], test[10], test[11], test[12])
+>test_Pack_3 = ProfitMaximizer(test[9], test_data[10], test_data[11], test_data[12])
 >test_Pack_3.Fit(8)
 >
->test_Pack_4 = ProfitMaximizer(test[13], test[14], test[15], test[16])
+>test_Pack_4 = ProfitMaximizer(test[13], test_data[14], test_data[15], test_data[16])
 >test_Pack_4.Fit(8)
 >
->test_Pack_5 = ProfitMaximizer(test[17], test[18], test[19], test[20])
+>test_Pack_5 = ProfitMaximizer(test[17], test_data[18], test_data[19], test_data[20])
 >test_Pack_5.Fit(8)
 > ```
 > <img width="725" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/6b900d44-e896-4d2c-a7ab-429231cd2186">
