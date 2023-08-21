@@ -105,3 +105,13 @@ for vec in Herbs_Seeds_Data:
 
 Herbs_Seeds_Data 
 """
+
+Index = ['Herb_Bag_' + str(i) for i in range(1,len(Herbs_Data)+1)]
+
+import pandas as pd
+
+Herbs_df = pd.DataFrame(Herbs_Data, columns=Herbs, index=Index)
+Herb_Seeds_df = pd.DataFrame(Herbs_Seeds_Data, columns=Herb_Seeds, index=Index)
+
+Herbs_df.to_csv("Herbs_df.csv")
+Herb_Seeds_df.to_csv("Herb_Seeds_df.csv")
