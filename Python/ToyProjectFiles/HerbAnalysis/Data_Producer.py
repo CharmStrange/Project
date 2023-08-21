@@ -31,7 +31,7 @@ vec_4 = [vec[4] for vec in Herbs_Data]; vec_4_mean = mean(vec_4); vec_4_std = st
 vec_5 = [vec[5] for vec in Herbs_Data]; vec_5_mean = mean(vec_5); vec_5_std = stdev(vec_5)
 vec_6 = [vec[6] for vec in Herbs_Data]; vec_6_mean = mean(vec_6); vec_6_std = stdev(vec_6)
 
-# 생성할 데이터의 개수는 100으로 설정함
+# 생성할 데이터의 개수는 5000으로 설정함
 ele_0 = np.random.normal(vec_0_mean, vec_0_std, size)
 eles_0 = [round(round_ele_0) for round_ele_0 in ele_0]
 
