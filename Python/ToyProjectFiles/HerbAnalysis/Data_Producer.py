@@ -60,6 +60,8 @@ for vec in Herbs_Data:
         if vec[i] < 0:
             vec[i] = 0
 
+Herbs_Data
+
 """ Herbs_Seeds_Data 데이터셋의 분포를 따르는 새로운 데이터셋을 생성
 vec_0 = [vec[0] for vec in Herbs_Seeds_Data]; vec_0_mean = mean(vec_0); vec_0_std = stdev(vec_0)
 vec_1 = [vec[1] for vec in Herbs_Seeds_Data]; vec_1_mean = mean(vec_1); vec_1_std = stdev(vec_1)
