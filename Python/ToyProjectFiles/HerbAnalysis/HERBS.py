@@ -239,10 +239,3 @@ Herbs_Seeds_Data = [
  [11, 36, 16, 8, 14, 12, 18],
  [16, 23, 22, 37, 2, 0, 13]
 ]
-
-Index = ['Herb_Bag_' + str(i) for i in range(1,len(Herbs_Data)+1)]
-
-import pandas as pd
-
-Herbs_df = pd.DataFrame(Herbs_Data, columns=Herbs, index=Index)
-Herb_Seeds_df = pd.DataFrame(Herbs_Seeds_Data, columns=Herb_Seeds, index=Index)
