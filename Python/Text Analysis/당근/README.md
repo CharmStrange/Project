@@ -5,58 +5,73 @@
 - [웹 크롤러](Korean_Carrot_saves.py)
 - [텍스트 분석기](KoNLPy_researcher.py)
 ---
-먼저, 각 지역별로 올라오는 아이템만 추출해 텍스트 파일로 저장한다. 지역별로 파일을 저장하려면 `list.txt` 파일명을 바꿔주든가 저장 경로를 다르게 설정해야 한다. 텍스트 파일명이 같으면 신규 데이터가 기존 데이터 위에 덮여 쓰여 기존 데이터가 사라지기 때문이다.
+먼저, 각 지역별로 올라오는 아이템만 추출해 텍스트 파일로 저장한다. 
 ```Python
 import requests
 from bs4 import BeautifulSoup
 
-# GET 요청으로 웹 페이지 내용 가져오기
-response = requests.get(제주특별자치도)
-html_content = response.text
+# 변수들을 딕셔너리에 저장
+regions = {
+    ...
+}
 
-# BeautifulSoup을 사용하여 HTML 파싱
-soup = BeautifulSoup(html_content, "html.parser")
-
-# class가 "card-title"인 요소들 찾기
-card_title_elements = soup.find_all(class_="card-title")
-
-# 결과 출력 및 저장
-output_file = "list.txt"
-with open(output_file, "w", encoding="utf-8") as f:
-    for element in card_title_elements:
-        title = element.get_text(strip=True)
-        print(title)
-        f.write(title + "\n")
+# 반복문을 통한 웹 크롤링 및 결과 저장
+for region, url in regions.items():
+    response = requests.get(url)
+    html_content = response.text
+    soup = BeautifulSoup(html_content, "html.parser")
+    card_title_elements = soup.find_all(class_="card-title")
+    output_file = f"list_{region}.txt"
+    
+    with open(output_file, "w", encoding="utf-8") as f:
+        for element in card_title_elements:
+            title = element.get_text(strip=True)
+            print(title)
+            f.write(title + "\n")
 ```
-(*2023년 8월 24일 기준*)코드의 실행 결과는 다음과 같다.
-<img width="633" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/c5fbd7ad-302f-41de-b68f-ef810456b2c4">
+(*2023년 8월 25일 기준*)코드의 실행(23) 결과는 다음과 같다.
+
+<img width="263" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/dcb102d6-cb11-458f-8b7a-99319afe2168">
 
 출력된 결과에 대해, 가장 많이 올라온 아이템을 알아보려면 [KoNLPy](https://konlpy.org/ko/latest/index.html)를 사용한다.
 ```Python
 from konlpy.tag import Okt
 from collections import Counter
 
-# 저장된 제목을 불러오기
-input_file = "list.txt"
-with open(input_file, "r", encoding="utf-8") as f:
-    titles = f.readlines()
+# 저장된 제목 파일 목록
+region_files = [f"list_{region}.txt" for region in regions.keys()]
 
 # 형태소 분석기 초기화
 okt = Okt()
 
 # 모든 제목에서 명사 추출
-nouns = []
-for title in titles:
-    nouns.extend(okt.nouns(title))
+all_nouns = []
 
-# 가장 많이 나온 상위 명사 10개 추출
-top_nouns = Counter(nouns).most_common(10)
+for region_file in region_files:
+    with open(region_file, "r", encoding="utf-8") as f:
+        titles = f.readlines()
+        
+    region_nouns = []
+    
+    for title in titles:
+        region_nouns.extend(okt.nouns(title))
+    
+    all_nouns.extend(region_nouns)
+
+# 불용어 설정
+stop_words = ['판매', '기', '용', '인치']
+
+# 불용어 제외하고 명사 카운트
+filtered_nouns = [noun for noun in all_nouns if noun not in stop_words]
+top_nouns = Counter(filtered_nouns).most_common(10)
 
 # 결과 출력
-print("가장 많이 사용된 명사:")
-for noun, count in top_nouns:
+print("가장 많이 사용된 명사:\n")
+for noun, count in top_nouns[1:]:  # 첫 번째 요소 제외하고 출력
     print(f"{noun}: {count}회")
 ```
-위 코드의 실행 결과는 다음과 같다.
+위 코드의 실행(2초) 결과는 다음과 같다.
 
-<img width="300" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/23446be6-eee7-45d3-803e-1b84244fa469">
+<img width="271" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/3ce75096-8fe9-4b1e-9aab-2008206322ff">
+
+전체 지역별로 많이 올라온 아이템들의 카테고리를 한 눈에 확인할 수 있다.
