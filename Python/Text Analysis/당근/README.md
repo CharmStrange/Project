@@ -59,7 +59,7 @@ for region_file in region_files:
     all_nouns.extend(region_nouns)
 
 # 불용어 설정
-stop_words = ['판매', '기', '용', '인치']
+stop_words = [...]
 
 # 불용어 제외하고 명사 카운트
 filtered_nouns = [noun for noun in all_nouns if noun not in stop_words]
