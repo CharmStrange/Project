@@ -29,7 +29,7 @@ for region, url in regions.items():
             print(title)
             f.write(title + "\n")
 ```
-(*2023년 8월 25일 기준*)코드의 실행(23) 결과는 다음과 같다.
+(*2023년 8월 25일 기준*)코드의 실행(23초) 결과는 다음과 같다.
 
 <img width="263" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/dcb102d6-cb11-458f-8b7a-99319afe2168">
 
