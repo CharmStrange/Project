@@ -72,6 +72,7 @@ for noun, count in top_nouns:
 ```
 위 코드의 실행(2초) 결과는 다음과 같다.
 
-<img width="271" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/3ce75096-8fe9-4b1e-9aab-2008206322ff">
+<img width="221" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/aca94fe1-fa8b-4e84-a397-3c590d1157b8">
+
 
 전체 지역별로 많이 올라온 아이템들의 카테고리를 한 눈에 확인할 수 있다.
