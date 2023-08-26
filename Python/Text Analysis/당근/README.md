@@ -50,12 +50,12 @@ all_nouns = []
 for region_file in region_files:
     with open(region_file, "r", encoding="utf-8") as f:
         titles = f.readlines()
-        
+
     region_nouns = []
-    
+
     for title in titles:
         region_nouns.extend(okt.nouns(title))
-    
+
     all_nouns.extend(region_nouns)
 
 # 불용어 설정
@@ -67,7 +67,7 @@ top_nouns = Counter(filtered_nouns).most_common(10)
 
 # 결과 출력
 print("가장 많이 사용된 명사:\n")
-for noun, count in top_nouns[1:]:  # 첫 번째 요소 제외하고 출력
+for noun, count in top_nouns: 
     print(f"{noun}: {count}회")
 ```
 위 코드의 실행(2초) 결과는 다음과 같다.
