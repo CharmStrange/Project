@@ -2,7 +2,8 @@
 
 각 [지역](regions.py)별로 많이 올라오는 아이템에 대해 알아본다.
 
-- [웹 크롤러](Korean_Carrot_saves.py)
+- [웹 크롤러](https://github.com/CharmStrange/Project/blob/%EC%A0%9C%EC%9E%91_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/Web%20Crawl/CarrotCrawler.exe)
+- [웹 크롤러 소스 코드](Korean_Carrot_saves.py)
 - [텍스트 분석기](KoNLPy_researcher.py)
 ---
 먼저, 각 지역별로 올라오는 아이템만 추출해 텍스트 파일로 저장한다. 
