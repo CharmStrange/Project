@@ -77,3 +77,5 @@ for noun, count in top_nouns:
 
 
 전체 지역별로 많이 올라온 아이템들의 카테고리를 한 눈에 확인할 수 있다.
+
+[데이터 베이스](https://github.com/CharmStrange/Project/tree/main/SQLite%26DB/%EB%8B%B9%EA%B7%BC)
