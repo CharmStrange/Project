@@ -20,4 +20,6 @@
 > [[뉴스 5](https://news.kbs.co.kr/news/view.do?ncd=7724580)],
 > [[뉴스 6](https://www.sjsori.com/news/articleView.html?idxno=64488)],
 > [[뉴스 7](https://www.sjsori.com/news/articleView.html?idxno=64574)],
-> [[뉴스 8](https://m.khan.co.kr/local/Sejong/article/202307101345001#c2b)]
+> [[뉴스 8](https://m.khan.co.kr/local/Sejong/article/202307101345001#c2b)],
+> [[세종특별자치시 불투수 면적 관련 뉴스](https://www.sjsori.com/news/articleView.html?idxno=44806)],
+> [[침수 피해 연구 보고서](202205131112582602.pdf)],
