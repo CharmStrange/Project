@@ -32,8 +32,62 @@
 > ...
 > ```
 > 위 자료들로 개략적인 피해 현황을 파악할 수 있었다. 결과적으로 이는 충분히 심각한 문제로 인식되며 문제 해결의 필요성을 느끼게 한다.
+> > 대부분의 도시 침수 피해 원인은 충분하지 못한 하수(우수/오수)처리시설의 수와 처리 용량, 그리고 넓은 불투수 면적이다.
+>
+> > [유역, 하천 등의 범람으로 인한 근방의 침수 피해](https://www.ytn.co.kr/_ln/0115_202307181904429744)도 존재한다. (세종특별자치시의 조치원읍 바로 옆 오송읍 사고)
 ---
 > # 2. 기록된 공개 정형 데이터로 문제점을 파악
 > [[세종특별자치시 상하수도 처리시설 데이터](세종특별자치시_상하수도_처리시설_현황_20230310.csv)(위도, 경도, 일일처리용량)],
-> [[수해 위험 지역 현황 데이터](행정안전부_인명피해_우려지역_현황_20230616.csv]
+> [[수해 위험 지역 현황 데이터](행정안전부_인명피해_우려지역_현황_20230616.csv)]
 > [[2023년 세종특별자치시 강우량 데이터](rf2023.csv)]
+> 
+> ```Python
+> import pandas as pd
+>import folium
+> import geopandas as gpd
+>from folium import GeoJson
+>
+>세종특별자치시_상하수도_처리시설_현황_20230310 = pd.read_csv("세종특별자치시_상하수도 처리시설 현황_20230310.csv", encoding='cp949')
+>행정안전부_인명피해_우려지역_현황_20230616 = pd.read_csv("행정안전부_인명피해 우려지역 현황_20230616.csv", encoding='cp949')
+>강우량2023 = pd.read_csv("rf2023.csv", encoding='cp949')
+> 
+> # 세종특별자치시 경계 GeoJSON 파일 경로
+>geojson_path = 'hangjeongdong_세종특별자치시.geojson'
+>
+># GeoJSON 파일을 geopandas로 읽기
+>gdf = gpd.read_file(geojson_path)
+>
+># 지도 생성
+>m = folium.Map(location=[36.5, 127.25], zoom_start=11)
+>
+># 세종특별자치시 경계 GeoJson 객체 생성
+>geojson = GeoJson(gdf,
+>                  style_function=lambda feature: {
+>                      'color': 'blue',
+>                      'fillColor': 'blue',
+>                      'weight': 2,
+>                      'fillOpacity': 0.1,
+>                  })
+>
+># 세종특별자치시 경계를 지도에 추가
+>geojson.add_to(m)
+>
+># 데이터프레임을 반복하면서 마커와 팝업 추가
+>for index, row in 세종특별자치시_상하수도_처리시설_현황_20230310.iterrows():
+>    marker = folium.Marker(
+>        location=[row['위도'], row['경도']],
+>        popup=f"{row['처리시설명']}<br>처리용량(톤-일별): {row['처리용량(톤-일별)']}",
+>        tooltip=row['처리시설명']  # 마커에 대한 툴팁 설정
+>    )
+>    marker.add_to(m)
+>
+># 지도 저장
+>m.save('facility_map_with_capacity.html')
+> ```
+> 
+> [[하수처리시설 현황 지도](map.zip)]
+> 
+> <img width="348" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/4e3cef7d-b387-41a7-8e8a-e1785c97e43c">
+><img width="333" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/9649fb0c-d031-456c-a5ae-32ad7605f5af">
+
+> 
