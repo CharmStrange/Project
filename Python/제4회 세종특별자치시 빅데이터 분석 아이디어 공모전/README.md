@@ -21,6 +21,7 @@
 > [[뉴스 6](https://www.sjsori.com/news/articleView.html?idxno=64488)],
 > [[뉴스 7](https://www.sjsori.com/news/articleView.html?idxno=64574)],
 > [[뉴스 8](https://m.khan.co.kr/local/Sejong/article/202307101345001#c2b)],
+> [[뉴스 9](https://www.inews365.com/mobile/article.html?no=726967)],
 > [[세종특별자치시 불투수 면적 관련 뉴스](https://www.sjsori.com/news/articleView.html?idxno=44806)],
 > [[침수 피해 연구 보고서](202205131112582602.pdf)]
 > ```
@@ -29,6 +30,7 @@
 > [특보] 세종시 등 산사태·침수…인명피해 잇따라
 > 세종시 해밀동 아파트, “매년 여름에는 물바다 돼요”
 > 세종 곳곳서 집중 호우 피해…아파트 승강기 침수로 주민 불편 겪기도
+> 세종시 조치원 중심 침수피해 발생…인명피해 없어
 > ...
 > ```
 > 위 자료들로 개략적인 피해 현황을 파악할 수 있었다. 결과적으로 이는 충분히 심각한 문제로 인식되며 문제 해결의 필요성을 느끼게 한다.
@@ -38,7 +40,7 @@
 ---
 > # 2. 기록된 공개 정형 데이터로 문제점을 파악
 > [[세종특별자치시 상하수도 처리시설 데이터](https://github.com/CharmStrange/Project/blob/main/Python/%EC%A0%9C4%ED%9A%8C%20%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C%20%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%20%EA%B3%B5%EB%AA%A8%EC%A0%84/CSV%20%EB%8D%B0%EC%9D%B4%ED%84%B0/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C_%EC%83%81%ED%95%98%EC%88%98%EB%8F%84_%EC%B2%98%EB%A6%AC%EC%8B%9C%EC%84%A4_%ED%98%84%ED%99%A9_20230310.csv)(위도, 경도, 일일처리용량)],
-> [[수해 위험 지역 현황 데이터](https://github.com/CharmStrange/Project/blob/main/Python/%EC%A0%9C4%ED%9A%8C%20%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C%20%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%20%EA%B3%B5%EB%AA%A8%EC%A0%84/CSV%20%EB%8D%B0%EC%9D%B4%ED%84%B0/%ED%96%89%EC%A0%95%EC%95%88%EC%A0%84%EB%B6%80_%EC%9D%B8%EB%AA%85%ED%94%BC%ED%95%B4_%EC%9A%B0%EB%A0%A4%EC%A7%80%EC%97%AD_%ED%98%84%ED%99%A9_20230616.csv)]
+> [[수해 위험 지역 현황 데이터](https://github.com/CharmStrange/Project/blob/main/Python/%EC%A0%9C4%ED%9A%8C%20%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C%20%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%20%EA%B3%B5%EB%AA%A8%EC%A0%84/CSV%20%EB%8D%B0%EC%9D%B4%ED%84%B0/%ED%96%89%EC%A0%95%EC%95%88%EC%A0%84%EB%B6%80_%EC%9D%B8%EB%AA%85%ED%94%BC%ED%95%B4_%EC%9A%B0%EB%A0%A4%EC%A7%80%EC%97%AD_%ED%98%84%ED%99%A9_20230616.csv)],
 > [[2023년 세종특별자치시 강우량 데이터](https://github.com/CharmStrange/Project/blob/main/Python/%EC%A0%9C4%ED%9A%8C%20%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C%20%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%20%EA%B3%B5%EB%AA%A8%EC%A0%84/CSV%20%EB%8D%B0%EC%9D%B4%ED%84%B0/rf2023.csv)]
 > 
 > ```Python
@@ -89,5 +91,5 @@
 > 
 > <img width="348" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/4e3cef7d-b387-41a7-8e8a-e1785c97e43c">
 ><img width="333" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/9649fb0c-d031-456c-a5ae-32ad7605f5af">
-
-> 
+>
+> 가장 먼저 세종특별자치시의 하수처리시설 현황(위치)을 시각화하여 HTML 파일로 저장했다. 마커를 클릭하면 그 하수처리시설의 일일 처리량(단위 : 톤)을 볼 수 있다. 
