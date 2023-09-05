@@ -12,7 +12,7 @@
 > # 1. 수해와 관련된 개략적인 세종특별자치시의 현황 파악
 > *이 부분에선 세종특별자치시의 수해와 관련된 여러 자료를 찾아 전반적인 현황 개요를 알아본다.*
 > 
-> [[생활안전지도 - 세종특별자치시 침수흔적도](https://www.safemap.go.kr/main/smap.do?flag=2#)],
+> [[생활안전지도 - 세종특별자치시 침수흔적도](https://www.safemap.go.kr/main/smap.do?flag=2#)(~2017)],
 > [[뉴스 1](https://www.youtube.com/watch?v=qtdogMMv9UM)],
 > [[뉴스 2](https://www.youtube.com/watch?v=Nzc5gc7kxOA)],
 > [[뉴스 3](https://www.jbnews.com/news/articleView.html?idxno=1400821)],
@@ -34,6 +34,9 @@
 > ...
 > ```
 > 위 자료들로 개략적인 피해 현황을 파악할 수 있었다. 결과적으로 이는 충분히 심각한 문제로 인식되며 문제 해결의 필요성을 느끼게 한다.
+>
+> #### : 대표적인 세종특별자치시의 침수 피해 위험 지역은 **행정중심복합도시**와 **조치원읍**이라고 가정할 수 있을 것이다.
+>
 > > **Point**. 대부분의 도시 침수 피해 원인은 충분하지 못한 하수(우수/오수)처리시설의 수와 처리 용량, 그리고 넓은 불투수 면적이다.
 >
 > > **Plus**. [유역, 하천 등의 범람으로 인한 근방의 침수 피해](https://www.ytn.co.kr/_ln/0115_202307181904429744)도 존재한다. (세종특별자치시의 조치원읍 바로 옆 오송읍 사고)
@@ -93,3 +96,21 @@
 ><img width="333" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/9649fb0c-d031-456c-a5ae-32ad7605f5af">
 >
 > 가장 먼저 세종특별자치시의 하수처리시설 현황(위치)을 시각화하여 HTML 파일로 저장했다. 마커를 클릭하면 그 하수처리시설의 일일 처리량(단위 : 톤)을 볼 수 있다. 
+>
+> 이와 관련해 <[행정중심복합도시건설청 세종특별자치시 행복도시 정보](https://naacc.go.kr/WEB/contents/N1010100000.do)>에 기재된 내용에 따르면, 앞서 침수 피해 위험지역이라고 가정한 행정중심복합도시의 구역은 다음과 같다.
+>
+> <img width="765" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/1b62df9a-fc8c-4d6a-9292-8943c42ceb97">
+>
+> 그런데 방금 제작한 하수처리시설 현황을 보면, 행정중심복합도시엔 남서쪽 수질복원센터 A를 제외한 다른 하수처리시설은 아예 없다. 
+>
+> <img width="335" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/1aa4df09-cae5-47c6-a14a-633f4c7ea8c1">
+> <img width="338" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/e255a519-5213-4c66-b50d-7e5a79c1b61c">
+>
+> 또한 앞서 첨부해 둔 `생활안전지도 - 세종특별자치시 침수흔적도(~2017)` 를 참고하여 하수처리시설 현황과 종합해 보면 조치원읍 또한 하수처리시설이 하나밖에 없다. 
+>
+> <img width="290" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/67cb071d-0685-49f8-98d1-01bb64ef49db">
+>
+> <img width="241" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/b0e43e63-89cd-45af-b40d-c8d2b6d0b852">
+
+
+
