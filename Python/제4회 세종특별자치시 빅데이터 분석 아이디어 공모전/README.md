@@ -4,8 +4,8 @@
 
 ## < 목차 >
 ### - **[수해와 관련된 개략적인 세종특별자치시의 현황 파악](#1)**
-### - **[기록된 공개 정형 데이터로 문제점을 파악]**
-### - **[파악한 문제점을 바탕으로 아이디어의 실현 가능성 및 기대 효과를 판단]**
+### - **[기록된 공개 정형 데이터로 문제점을 파악](#2)**
+### - **[파악한 문제점을 바탕으로 아이디어의 실현 가능성 및 기대 효과를 판단](#3)**
 
 ---
 
@@ -41,7 +41,7 @@
 >
 > > **Plus**. [유역, 하천 등의 범람으로 인한 근방의 침수 피해](https://www.ytn.co.kr/_ln/0115_202307181904429744)도 존재한다. (세종특별자치시의 조치원읍 바로 옆 오송읍 사고)
 ---
-> # 2. 기록된 공개 정형 데이터로 문제점을 파악
+> # #2. 기록된 공개 정형 데이터로 문제점을 파악
 > [[세종특별자치시 상하수도 처리시설 데이터](https://github.com/CharmStrange/Project/blob/main/Python/%EC%A0%9C4%ED%9A%8C%20%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C%20%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%20%EA%B3%B5%EB%AA%A8%EC%A0%84/CSV%20%EB%8D%B0%EC%9D%B4%ED%84%B0/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C_%EC%83%81%ED%95%98%EC%88%98%EB%8F%84_%EC%B2%98%EB%A6%AC%EC%8B%9C%EC%84%A4_%ED%98%84%ED%99%A9_20230310.csv)(위도, 경도, 일일처리용량)],
 > [[수해 위험 지역 현황 데이터](https://github.com/CharmStrange/Project/blob/main/Python/%EC%A0%9C4%ED%9A%8C%20%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C%20%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%20%EA%B3%B5%EB%AA%A8%EC%A0%84/CSV%20%EB%8D%B0%EC%9D%B4%ED%84%B0/%ED%96%89%EC%A0%95%EC%95%88%EC%A0%84%EB%B6%80_%EC%9D%B8%EB%AA%85%ED%94%BC%ED%95%B4_%EC%9A%B0%EB%A0%A4%EC%A7%80%EC%97%AD_%ED%98%84%ED%99%A9_20230616.csv)],
 > [[2023년 세종특별자치시 강우량 데이터](https://github.com/CharmStrange/Project/blob/main/Python/%EC%A0%9C4%ED%9A%8C%20%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C%20%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%20%EA%B3%B5%EB%AA%A8%EC%A0%84/CSV%20%EB%8D%B0%EC%9D%B4%ED%84%B0/rf2023.csv)]
@@ -125,3 +125,5 @@
 > ```
 > 
 
+> # #3. 파악한 문제점을 바탕으로 아이디어의 실현 가능성 및 기대 효과를 판단
+> 
