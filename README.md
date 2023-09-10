@@ -20,9 +20,11 @@
 #
 
 ![image](https://github.com/CharmStrange/Project/assets/105769152/4538316a-db85-4f23-a7f8-cee7cbe0d7c1)
+
 <img src="https://img.shields.io/badge/Modeling-004466?style=flat&logo=nodered&logoColor=white" />
 <img src="https://img.shields.io/badge/Integration-66595C?style=flat&logo=icinga&logoColor=white" />
 <img src="https://img.shields.io/badge/Analytic-4ACBD6?style=flat&logo=googleanalytics&logoColor=white" />
+
 ![image](https://github.com/CharmStrange/Project/assets/105769152/7705e3d5-7176-4aa2-bb5b-d24d1c1e243c)
 
 </div>
