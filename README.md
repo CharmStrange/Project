@@ -3,5 +3,10 @@
 > ### **Toy Project**
 > * ...
 
->### **Featured Project**
+> ### **Major Project**
 > * ...
+
+> ### **Featured Project**
+> * ...
+
+![image](https://github.com/CharmStrange/Project/assets/105769152/4538316a-db85-4f23-a7f8-cee7cbe0d7c1)
