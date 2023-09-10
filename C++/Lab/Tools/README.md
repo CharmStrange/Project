@@ -36,4 +36,5 @@
 > 위 소스 코드는 Python `sklearn.preprocessing` 의 `StandardScaler` 알고리즘을 C++ 로 구현한 것으로, 실행 결과를 비교해 보면 같은 것을 알 수 있다.
 >
 > <img width="758" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/ecf44364-fcea-4675-b36e-8e95c21f930b">
-
+---
+> *[RobustScaler Source Code](Robustscaler.cpp)
