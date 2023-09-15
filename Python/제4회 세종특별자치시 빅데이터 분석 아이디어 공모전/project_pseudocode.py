@@ -27,10 +27,10 @@ current_flood_risk = calculate_flood_risk(merged_data)
 
 # 위험도에 따른 침수 여부 판단, 이 결과를 바탕으로 예경보를 수행
 if current_flood_risk >= threshold:
-    flood_warning = "침수 가능성이 높습니다. 주의하세요."
+    flood_warning = "침수 가능성이 높음"
 else:
-    flood_warning = "침수 가능성이 낮습니다. 안심하세요."
+    flood_warning = "침수 가능성이 낮음"
 
-# 결과 출력
-print(f"현재 침수 위험도: {current_flood_risk}")
-print(f"침수 여부 예측: {flood_warning}")
+# 결과 출력, 결과의 형식은 달라질 수 있음
+print(f"현재 침수 위험도: {current_flood_risk} %")
+print(f"침수 여부 예측: {flood_warning} %")
