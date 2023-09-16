@@ -8,6 +8,7 @@
 ### - **[파악한 문제점을 바탕으로 아이디어의 실현 가능성 및 기대 효과를 판단](#3)**
 ### - **[결론](#결론)**
 ### - **[후기](#후기)**
+### - **[참고자료](#참고자료)**
 
 ---
 
@@ -157,3 +158,38 @@
 ---
 > # #후기 <a name="후기"></a>
 > 데이터 분석 분야인데 제공되거나 찾을 수 있는 데이터가 한정적이라 조금 아쉬웠다. 게다가 기록되지 않은 데이터도 많았기 때문에 데이터 수집, 처리 쪽에서 힘들었다.
+---
+> # #참고자료 <a name="참고자료"></a>
+> [세종특별자치시 재난안전대책본부 강우정보 연간 강우](https://www.sejong.go.kr/prog/safetyData/safety/sub02_02/rain/rainfallYearlyList.do)
+> 
+> [행정안전부_인명피해 우려지역 현황_20230616.csv](https://www.data.go.kr/data/15025383/fileData.do?recommendDataYn=Y)
+> 
+> [세종특별자치시_상하수도 처리시설 현황_20230310.csv](https://www.data.go.kr/data/15011852/fileData.do)
+> 
+> [세종시 시민안전 물관리를 위한 정책 수립 및 이행 방안](https://www.dsi.re.kr/upload/board/0004/202205131112582602.pdf)
+> 
+> [세종시 지형과 고도](http://sejong.grandculture.net/sejong/toc/GC07700034)
+> 
+> [세종특별자치시 행정중심복합도시 개요](https://naacc.go.kr/WEB/contents/N1010100000.do)
+> 
+> [세종특별자치시 침수흔적도](https://www.safemap.go.kr/main/smap.do?flag=2#)
+> 
+> [기상자료개방포털- 세종 2019~2022 강수량분석 ](https://data.kma.go.kr/stcs/grnd/grndRnList.do?pgmNo=69)
+> 
+> [hangjeongdong_세종특별자치시.geojson](https://github.com/raqoon886/Local_HangJeongDong/blob/master/hangjeongdong_%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C.geojson)
+> 
+> [[특보] 세종시 등 산사태·침수…인명피해 잇따라 / KBS 2023.07.15.](https://www.youtube.com/watch?v=qtdogMMv9UM)
+> 
+>[침수로 도로 잠겨 요양원 고립...충남·세종서 2명 숨져 / YTN](https://www.youtube.com/watch?v=Nzc5gc7kxOA)
+> 
+> [세종 328㎜ 물폭탄… 이응다리 침수 위기](https://www.jbnews.com/news/articleView.html?idxno=1400821)
+> 
+> [569㎜ 물폭탄에 대전세종충남 피해 속출…5명 사망·1명 실종(종합2보)](https://www.yna.co.kr/view/AKR20230715029452063)
+> 
+> [[특보] 세종시 등 산사태·침수…인명피해 잇따라](https://news.kbs.co.kr/news/pc/view/view.do?ncd=7724580)
+> 
+> [세종시 해밀동 아파트, “매년 여름에는 물바다 돼요”](https://www.sjsori.com/news/articleView.html?idxno=64488)
+> 
+> [“어디가 도로이고 강인지”… 세종시 1명 토사에 매몰, 사망](https://www.sjsori.com/news/articleView.html?idxno=64574)
+> 
+> [세종 곳곳서 집중 호우 피해…아파트 승강기 침수로 주민 불편 겪기도](https://m.khan.co.kr/local/Sejong/article/202307101345001#c2b)
