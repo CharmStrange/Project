@@ -8,8 +8,6 @@
 ### - **[파악한 문제점을 바탕으로 아이디어의 실현 가능성 및 기대 효과를 판단](#3)**
 ### - **[결론](#결론)**
 ### - **[후기](#후기)**
-### - **[참고자료](#참고자료)**
-
 ---
 
 > # #1. 수해와 관련된 개략적인 세종특별자치시의 현황 파악 <a name="1"></a>
@@ -159,28 +157,3 @@
 > # #후기 <a name="후기"></a>
 > 데이터 분석 분야인데 제공되거나 찾을 수 있는 데이터가 한정적이라 조금 아쉬웠다. 게다가 기록되지 않은 데이터도 많았기 때문에 데이터 수집, 처리 쪽에서 힘들었다.
 ---
-> # #참고자료 <a name="참고자료"></a>
-> 
-> [세종시 지형과 고도](http://sejong.grandculture.net/sejong/toc/GC07700034)
-> 
-> [세종특별자치시 행정중심복합도시 개요](https://naacc.go.kr/WEB/contents/N1010100000.do)
-> 
-> [세종특별자치시 침수흔적도](https://www.safemap.go.kr/main/smap.do?flag=2#)
-> 
-> [기상자료개방포털- 세종 2019~2022 강수량분석 ](https://data.kma.go.kr/stcs/grnd/grndRnList.do?pgmNo=69)
-> 
-> [[특보] 세종시 등 산사태·침수…인명피해 잇따라 / KBS 2023.07.15.](https://www.youtube.com/watch?v=qtdogMMv9UM)
-> 
->[침수로 도로 잠겨 요양원 고립...충남·세종서 2명 숨져 / YTN](https://www.youtube.com/watch?v=Nzc5gc7kxOA)
-> 
-> [세종 328㎜ 물폭탄… 이응다리 침수 위기](https://www.jbnews.com/news/articleView.html?idxno=1400821)
-> 
-> [569㎜ 물폭탄에 대전세종충남 피해 속출…5명 사망·1명 실종(종합2보)](https://www.yna.co.kr/view/AKR20230715029452063)
-> 
-> [[특보] 세종시 등 산사태·침수…인명피해 잇따라](https://news.kbs.co.kr/news/pc/view/view.do?ncd=7724580)
-> 
-> [세종시 해밀동 아파트, “매년 여름에는 물바다 돼요”](https://www.sjsori.com/news/articleView.html?idxno=64488)
-> 
-> [“어디가 도로이고 강인지”… 세종시 1명 토사에 매몰, 사망](https://www.sjsori.com/news/articleView.html?idxno=64574)
-> 
-> [세종 곳곳서 집중 호우 피해…아파트 승강기 침수로 주민 불편 겪기도](https://m.khan.co.kr/local/Sejong/article/202307101345001#c2b)
