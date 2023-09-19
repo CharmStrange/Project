@@ -1,1 +1,1 @@
-[당근마켓 Top 10 Text DB]([DB files/Text Analysis-당근](https://github.com/CharmStrange/Project/tree/main/DB%20files/Text%20Analysis-%EB%8B%B9%EA%B7%BC)https://github.com/CharmStrange/Project/tree/main/DB%20files/Text%20Analysis-%EB%8B%B9%EA%B7%BC)
+[당근마켓 Top 10 Text DB](https://github.com/CharmStrange/Project/tree/main/DB%20files/Text%20Analysis-%EB%8B%B9%EA%B7%BC)
