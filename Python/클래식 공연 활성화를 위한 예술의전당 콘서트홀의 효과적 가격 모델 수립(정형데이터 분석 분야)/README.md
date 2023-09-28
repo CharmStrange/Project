@@ -20,6 +20,9 @@
  
 ---
  ### 3. 최종 아이디어 구체화 및 흐름 작성 <a name="최종-아이디어-구현"></a>
+ 결정된 의견을 간단하게 구현해 보았고, 최종 상품화에 적용할 시나리오 알고리즘을 작성해 보았다.
+
+!코드!
 ``` Python
 # 콘서트홀의 층별 좌석 비율
 floor_1_ratio = 60.199600798403196 / 100
@@ -59,4 +62,73 @@ print()
 print(f"1등급 추가 비용 총액: {round(total_cost_1st_grade)}만원")
 print(f"2등급 추가 비용 총액: {round(total_cost_2nd_grade)}만원")
 print(f"3등급 추가 비용 총액: {round(total_cost_3rd_grade)}만원")
+```
+```
+>>>
+1등급 좌석 수: 429석
+2등급 좌석 수: 568석
+3등급 좌석 수: 1508석
+
+1등급 추가 비용 총액: 0만원
+2등급 추가 비용 총액: 568만원
+3등급 추가 비용 총액: 3016만원
+```
+이론적인 계산 방법이지만, 기존의 좌석 제공 방법에 비해 더 벌었으면 벌었지 잃은 건 없는 해결책이다.
+```Python
+import random
+
+# 콘서트홀의 층별 좌석 비율
+floor_1_ratio = 60.199600798403196 / 100
+floor_2_ratio = 22.674650698602793 / 100
+floor_3_ratio = 17.12574850299401 / 100
+
+# 콘서트홀의 전체 좌석 수
+total_seats = 2505
+
+# 각 층의 좌석 수 계산
+seats_floor_1 = floor_1_ratio * total_seats
+seats_floor_2 = floor_2_ratio * total_seats
+seats_floor_3 = floor_3_ratio * total_seats
+
+# 등급별 추가 비용 설정 (1등급, 2등급, 3등급)
+additional_cost_1st_grade = 0  # 1등급은 추가 비용이 없음
+additional_cost_2nd_grade = 1  # 2등급은 1만원 추가 비용
+additional_cost_3rd_grade = 2  # 3등급은 2만원 추가 비용
+
+# '럭키드로우' 상품의 확률 설정
+lucky_draw_probability = 0.4  # 10% 확률로 '럭키드로우' 상품 선택
+
+# '럭키드로우' 상품을 고려하여 등급 선택
+def select_seat_grade():
+    if random.random() < lucky_draw_probability:
+        # '럭키드로우' 상품 선택 시, 무작위로 등급 선택
+        return random.choice([1, 2, 3])
+    else:
+        # 일반 선택 시, 가장 저렴한 등급 선택
+        return 3
+
+# 등급 선택
+selected_grade = select_seat_grade()
+
+# 선택된 등급에 따라 좌석 수와 추가 비용 계산
+if selected_grade == 1:
+    seats_selected_grade = seats_floor_3
+    additional_cost_selected_grade = additional_cost_1st_grade
+elif selected_grade == 2:
+    seats_selected_grade = seats_floor_2
+    additional_cost_selected_grade = additional_cost_2nd_grade
+else:
+    seats_selected_grade = seats_floor_1
+    additional_cost_selected_grade = additional_cost_3rd_grade
+
+# 결과 출력
+print(f"선택된 등급: {selected_grade}등급")
+print(f"선택된 등급 좌석 수: {round(seats_selected_grade)}석")
+print(f"선택된 등급 추가 비용: {round(additional_cost_selected_grade)}만원")
+```
+```
+>>>
+선택된 등급: 1등급
+선택된 등급 좌석 수: 429석
+선택된 등급 추가 비용: 0만원
 ```
