@@ -1,3 +1,3 @@
-# Python - luigi 사용법
+# Python - luigi Tutorial
 
 
