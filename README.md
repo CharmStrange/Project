@@ -32,4 +32,6 @@
 
 ![image](https://github.com/CharmStrange/Project/assets/105769152/7705e3d5-7176-4aa2-bb5b-d24d1c1e243c)
 
+#### < [Activity](https://github.com/CharmStrange/Project/activity) >
+
 </div>
