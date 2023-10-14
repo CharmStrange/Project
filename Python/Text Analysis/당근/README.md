@@ -124,4 +124,4 @@ cursor.execute('''
 conn.commit()
 conn.close()
 ```
-일단 텍스트 분석기가 내놓은 결과를 가지고 데이터베이스 파일에 데이터를 보관하는 프로토타입 코드를 작성해 봤다. 기존 DB 구조와 동일하게 저장된다.
+일단 텍스트 분석기가 내놓은 결과를 가지고 데이터베이스 파일에 데이터를 보관하는 프로토타입 코드를 작성해 봤다. [기존 DB](https://github.com/CharmStrange/Project/tree/main/DB%20files/Text%20Analysis-%EB%8B%B9%EA%B7%BC) 구조와 동일하게 저장된다.
