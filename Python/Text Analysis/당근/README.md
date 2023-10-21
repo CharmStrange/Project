@@ -95,25 +95,8 @@ for noun, count in top_nouns:
 ```Python
 import sqlite3
 
-conn = sqlite3.connect('Carrot.db')
+conn = sqlite3.connect('CarrotText.db')
 cursor = conn.cursor()
-
-# 테이블 생성
-cursor.execute('''
-    CREATE TABLE Carrot (
-        Day INTEGER PRIMARY KEY,
-        TOP1 TEXT,
-        TOP2 TEXT,
-        TOP3 TEXT,
-        TOP4 TEXT,
-        TOP5 TEXT,
-        TOP6 TEXT,
-        TOP7 TEXT,
-        TOP8 TEXT,
-        TOP9 TEXT,
-        TOP10 TEXT
-    )
-''')
 
 # 데이터 보관
 cursor.execute('''
@@ -125,3 +108,9 @@ conn.commit()
 conn.close()
 ```
 일단 텍스트 분석기가 내놓은 결과를 가지고 데이터베이스 파일에 데이터를 보관하는 프로토타입 코드를 작성해 봤다. [기존 DB](https://github.com/CharmStrange/Project/tree/main/DB%20files/Text%20Analysis-%EB%8B%B9%EA%B7%BC) 구조와 동일하게 저장된다.
+
+<img width="336" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/20e6fc7b-ed52-4843-b443-c1af9e392915">
+
+<img width="336" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/04432c30-00ec-4737-91a5-f90a6b8f747a">
+
+코드를 실행하면 기존 데이터베이스에 자동으로 새 데이터가 추가된다. (CoLab 환경에 기존 데이터베이스 파일을 업로드해야 된다)
