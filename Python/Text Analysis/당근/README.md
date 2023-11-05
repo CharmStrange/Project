@@ -114,3 +114,9 @@ conn.close()
 <img width="336" alt="image" src="https://github.com/CharmStrange/Project/assets/105769152/04432c30-00ec-4737-91a5-f90a6b8f747a">
 
 코드를 실행하면 기존 데이터베이스에 자동으로 새 데이터가 추가된다. (CoLab 환경에 기존 데이터베이스 파일을 업로드해야 된다)
+
+---
+
+아예 이것까지 자동화 해버리고 싶은데, 어떻게 하면 좋을까?
+- CoLab 말고 로컬 환경에서 `cron` 같은거 설정해서 해 보기
+- 음... 
