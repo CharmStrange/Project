@@ -8,3 +8,7 @@
 ```SQL 
 INSERT INTO Carrot('Top1', 'Top2', 'Top3', 'Top4', 'Top5', 'Top6', 'Top7', 'Top8', 'Top9', 'Top10') VALUES(...)
 ```
+
+```SQL
+update Carrot set '컬럼명'=null where day=
+```
