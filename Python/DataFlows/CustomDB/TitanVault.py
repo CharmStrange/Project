@@ -13,7 +13,6 @@ class TitanVault:
 
     def __init__(self, DataBaseName):
         self.DataBaseName = DataBaseName
-        
 
     def method_1() :
         pass
