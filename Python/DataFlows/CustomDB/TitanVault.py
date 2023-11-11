@@ -1,6 +1,7 @@
 import os
 import datetime as dt
 import ctypes as ct
+import numpy as np
 import sqlite3
 
 class Struct(ct.Structure):
@@ -15,10 +16,13 @@ class TitanVault:
     def __init__(self, DataBaseName):
         self.DataBaseName = DataBaseName
         self.CreatedDate = dt.datetime.now()
-        self.Structure = Struct()
+        self.Base = []
 
     def __del__(self):
         pass
+
+    def newStruct(self):
+        self.Structure = Struct()
 
     def push(self, Header, Data_int, Data_double):
         self.Structure.Header = Header
