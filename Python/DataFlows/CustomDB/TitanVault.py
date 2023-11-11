@@ -10,6 +10,10 @@ class Struct(ct.Structure):
         ('Data_int', ct.c_int),
         ('Data_double', ct.c_double)
                ]
+    def push(self, Header, Data_int, Data_double):
+        self.Header = Header
+        self.Data_int = Data_int
+        self.Data_double = Data_double
 
 class TitanVault:
 
@@ -23,11 +27,7 @@ class TitanVault:
 
     def newStruct(self):
         self.Structure = Struct()
-
-    def push(self, Header, Data_int, Data_double):
-        self.Structure.Header = Header
-        self.Structure.Data_int = Data_int
-        self.Structure.Data_double = Data_double
+        self.Base.append(self.Structure)
 
     def pop(self):
         pass
