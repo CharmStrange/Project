@@ -5,11 +5,19 @@ import numpy as np
 import sqlite3
 
 class Struct(ct.Structure):
+
     _fields_ = [
         ('Header', ct.c_short),
         ('Data_int', ct.c_int),
         ('Data_double', ct.c_double)
                ]
+
+    def __init__(self):
+        pass
+
+    def __del__(self):
+        pass    
+
     def push(self, Header, Data_int, Data_double):
         self.Header = Header
         self.Data_int = Data_int
@@ -29,16 +37,15 @@ class TitanVault:
         self.Structure = Struct()
         self.Base.append(self.Structure)
 
-    def pop(self):
-        pass
-
-    def method_3(self):
-        pass
-
-    def method_4(self):
-        pass
-
-    def method_5(self):
-        pass
+    def pop(self, index):
+        del self.Base[index]
 
     pass
+
+class Cursor:
+
+    def __init__(self):
+        pass
+
+    def __del__(self):
+        pass
