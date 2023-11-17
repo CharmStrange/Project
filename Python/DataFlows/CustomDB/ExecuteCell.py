@@ -39,3 +39,8 @@ print(len(Titan2.Base))
 
 Titan2.pop(0)
 print(len(Titan2.Base))
+
+###
+
+test = Cursor('titan3', 3)
+test.information()
