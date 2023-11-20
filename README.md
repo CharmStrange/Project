@@ -1,6 +1,6 @@
 <div align="center">
   
-# ***Project*** : *진행한 프로젝트들을 기록합니다*.
+# ***My Projects***
 
 ### **Toy Project**
 [*게임 내 재화 수입 최대화를 위한 데이터 분석 & 모델 제작*](https://github.com/CharmStrange/Project/tree/main/Python/ToyProjectFiles/PackAnalysis) 
