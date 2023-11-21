@@ -42,5 +42,13 @@ print(len(Titan2.Base))
 
 ###
 
-test = Cursor('titan3', 3)
-test.information()
+test1 = Cursor('titan1')
+test1.information()
+test1.insert(0, 1, 2, 3.14)
+
+test2 = Cursor('titan2')
+test2.information()
+test2.insert(1, 2, 3, 4.25)
+
+test3 = Cursor('titan3')
+test3.About()
