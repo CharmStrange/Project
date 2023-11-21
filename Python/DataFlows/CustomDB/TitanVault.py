@@ -36,6 +36,7 @@ class TitanVault:
     def newStruct(self):
         self.Structure = Struct()
         self.Base.append(self.Structure)
+        return self.Structure
 
     def pop(self, index):
         del self.Base[index]
@@ -47,14 +48,17 @@ class Cursor:
 
     @classmethod
     def About(cls):
-        pass
+        print(f"Database(s) in database list : {cls.db}")
+        
+        for database in cls.dbs:
+            print(f"All database(s) : {database}") 
 
     """
 
     | Document |
-    
+
     01. Create a new database.
-    >>> 
+    >>>
 
     02. Utilize it.
     >>>
@@ -66,7 +70,7 @@ class Cursor:
             self.db += 1
             titanvault = TitanVault(Name)
             self.dbs.append(titanvault)
-            print(f"Created new database(s) | {titanvault} | DataBase can be controled by methods.\n")
+            print(f"Created new database(s) | {titanvault} | Database can be controled by methods.\n")
         print(f"Created database(s) : {self.db} | Length of database list : {len(self.dbs)}")
 
     def __del__(self):
@@ -76,5 +80,11 @@ class Cursor:
         index = 0
 
         for element in self.dbs:
-            print(f"Informations of each database :\nDatabse list index {index} | Databse name : {element.DataBaseName} | Created date : {element.CreatedDate}")
+            print(f"Informations of each database :\nDatabse list index [{index}] | Database name : {element.DataBaseName} | Created date : {element.CreatedDate}")
             index+=1
+
+    def insert(self, index, header, data_int, data_double):
+        new_Struct = self.dbs[index].newStruct()
+        print(type(new_Struct))
+        new_Struct.push(header, data_int, data_double)
+        #return new_Struct
