@@ -49,9 +49,9 @@ class Cursor:
     @classmethod
     def About(cls):
         print(f"Database(s) in database list : {cls.db}")
-        
+
         for database in cls.dbs:
-            print(f"All database(s) : {database}") 
+            print(f"All database(s) : {database}")
 
     """
 
@@ -87,4 +87,8 @@ class Cursor:
         new_Struct = self.dbs[index].newStruct()
         print(type(new_Struct))
         new_Struct.push(header, data_int, data_double)
-        #return new_Struct
+        return new_Struct
+
+    def pop(self, index):
+        del self.dbs[index]
+        print("Successfully deleted.")
