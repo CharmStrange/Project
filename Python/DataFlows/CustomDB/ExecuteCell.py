@@ -52,3 +52,4 @@ test2.insert(1, 2, 3, 4.25)
 
 test3 = Cursor('titan3')
 test3.About()
+test3.pop(0)
