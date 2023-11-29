@@ -48,7 +48,7 @@ class Cursor:
 
     @classmethod
     def About(cls):
-        print(f"Database(s) in database list : {cls.db}")
+        print(f"Database(s) in database list : {len(cls.dbs)}")
 
         for database in cls.dbs:
             print(f"All database(s) : {database}")
