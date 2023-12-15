@@ -1,5 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>  // For std::rand
+#include <ctime>    // For std::time
+#include <random>
 using namespace std;
 
 enum class Status {Bad, Soso, Good};
@@ -49,6 +52,31 @@ public:
     
 };
 
+enum class Weather_Phenomena {Breeze, Gust, Gale, Storm, Hurricane, Rain, Shower, Flood, Drought, Snow, Sleet, Hail, Blizzard, Fog, Mist, Haze};
+
+Weather_Phenomena GetRandomWeather() {
+    // Initialize a random number generator with a seed based on current time
+    std::srand(static_cast<unsigned>(std::time(0)));
+
+    // Get the number of enumerators in the Weather_Phenomena enum
+    int enumSize = static_cast<int>(Weather_Phenomena::Haze) + 1;
+
+    // Generate a random index within the range of the enum
+    int randomIndex = std::rand() % enumSize;
+
+    // Convert the random index to the corresponding Weather_Phenomena value
+    Weather_Phenomena randomWeather = static_cast<Weather_Phenomena>(randomIndex);
+
+    return randomWeather;
+}
+
+void Forecast() {
+    Weather_Phenomena randomWeather = GetRandomWeather();
+
+    // Do something with the randomly selected weather
+    std::cout << "Forecast: " << static_cast<int>(randomWeather) << std::endl;
+}
+
 vector<Corn> Corn_List;
 vector<Corn>::iterator Corn_List_Finder;
 
@@ -91,5 +119,6 @@ int main() {
     New_Corn();
     New_Corn();
     View_Corns();
+    Forecast();
 
 }
