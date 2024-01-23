@@ -1,1 +1,6 @@
-
+'Innkeeper' 1
+'Friendly Druid' 1
+'Kindly Shopkeeper' 1
+'Helpful Town Guard' 1
+'Cheerful Farmer' 1
+'Enthusiastic Scholar' 1
