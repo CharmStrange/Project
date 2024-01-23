@@ -1,1 +1,6 @@
-
+'Honey Bee' 2
+'Ladybug' 1
+'Praying Mantis' 2
+'Dragonfly' 2
+'Grasshopper' 1
+'Beetle' 1
