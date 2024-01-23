@@ -1,1 +1,6 @@
-
+'Local Merchant' 2
+'Wandering Bard' 2
+'Village Elder' 3
+'Explorer' 2
+'Mystic Seer' 3
+'Craftsman' 2
