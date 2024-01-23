@@ -1,7 +1,7 @@
-### 주제
+### What is it
 
 
-### 게임 내부 알고리즘
+### External Algorithm of Project
 
 
-### 게임 외부 알고리즘
+### Internal Algorithm of Project
