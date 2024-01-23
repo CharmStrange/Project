@@ -1,1 +1,6 @@
-
+'Butterfly' 1
+'Ladybug Larva' 1
+'Fuzzy Caterpillar' 1
+'Firefly' 1
+'Bee Larva' 1
+'Ant Worker' 1
