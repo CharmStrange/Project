@@ -1,7 +1,12 @@
 #ifndef CONTAINER_H
 # define CONTAINER_H
-# define US unsigned short
 
+// MACROS
+# define US unsigned short
+# define MAX_SAVES 3
+# define MAX_LOGS 10
+
+// ESSENTIAL HEADERS
 # include <iostream>
 # include <string>
 # include <deque>  // Using deque for easy insertion and removal at both ends
@@ -22,7 +27,7 @@ public:
 
     PLAYER_SAVE() : player_saves(number_of_player_saves++) {
         // If the container is full, remove the oldest save
-        if (PLAYER_SAVES.size() == 3) {
+        if (PLAYER_SAVES.size() == MAX_SAVES) {
             PLAYER_SAVES.erase(PLAYER_SAVES.begin());
         }
         PLAYER_SAVES.push_back(*this);
@@ -39,7 +44,7 @@ public:
     deque<string> player_logs;  // Using deque for easy insertion and removal
 
     void add_log(const string& log) {
-        if (player_logs.size() == 10) {
+        if (player_logs.size() == MAX_LOGS) {
             // If the container is full, remove the oldest log
             player_logs.pop_front();
         }
