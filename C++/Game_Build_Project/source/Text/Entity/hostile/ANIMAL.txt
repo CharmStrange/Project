@@ -1,6 +1,0 @@
-'Gray Wolf' 4
-'Poison Dart Frog' 3
-'Crocodile' 5
-'Brown Bear' 4
-'Komodo Dragon' 5
-'Tiger' 5

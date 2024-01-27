@@ -1,6 +1,0 @@
-'Rabbit' 2
-'Squirrel' 2
-'Turtle' 2
-'Deer' 3
-'Fox' 3
-'Otter' 2

@@ -1,6 +1,0 @@
-'Dolphin' 1
-'Golden Retriever' 1
-'Horse' 1
-'Panda' 1
-'Parrot' 1
-'Raccoon' 1

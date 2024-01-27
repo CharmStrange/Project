@@ -1,6 +1,0 @@
-'Dark Sorcerer' 5
-'Bandit Leader' 4
-'Giant Troll' 5
-'Witch' 4
-'Rogue Assassin' 5
-'Shadow Knight' 4

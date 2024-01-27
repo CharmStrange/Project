@@ -1,6 +1,0 @@
-'Doomsday Turtle' 5
-'Meditating Rabbit Sage' 4
-'Mystical Fog Shaman' 5
-'Holy Annihilator' 4
-'Enigmatic Monastery Spider' 5
-'Abyssal Devourer' 4

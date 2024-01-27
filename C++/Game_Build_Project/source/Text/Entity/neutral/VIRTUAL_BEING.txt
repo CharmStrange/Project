@@ -1,6 +1,0 @@
-'Arcane Nomad Phoenix' 2
-'Dreamweaving Nymph' 2
-'Cipher Elemental' 3
-'Veil Sprite' 2
-'Virtual Wanderer of the Depths' 3
-'Algorithmic Observer' 2

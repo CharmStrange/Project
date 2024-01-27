@@ -1,6 +1,0 @@
-'Black Widow Spider' 3
-'Bullet Ant' 4
-'Assassin Bug' 3
-'Asian Giant Hornet' 5
-'Fire Ant' 2
-'Scorpion' 4
