@@ -21,6 +21,10 @@ public:
     static US number_of_player_saves;
 
     PLAYER_SAVE() : player_saves(number_of_player_saves++) {
+        // If the container is full, remove the oldest save
+        if (PLAYER_SAVES.size() == 3) {
+            PLAYER_SAVES.erase(PLAYER_SAVES.begin());
+        }
         PLAYER_SAVES.push_back(*this);
     }
 
