@@ -33,4 +33,7 @@ I examined HTML structure of 'Tribal Wars Stats' to crawl data. And wrote approp
 
 **Source Code** : [src.py](src.py)
 
-**Database Folder** : [Click to move](Databases)
+**Database Folder** : [Click to move](Databases) / MM-DD-YYYY
+
+# Tail
+I announce this, not every file has same rows' length and size. Reason is, some of recorded players have no texts on website, but data. Source Code will delete them automatically.
