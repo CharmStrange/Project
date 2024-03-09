@@ -33,4 +33,4 @@ I examined HTML structure of 'Tribal Wars Stats' to crawl data. And wrote approp
 
 **Source Code** : [src.py](src.py)
 
-**Database Folder** : [Click to move](Databases) / MM-DD-YYYY
+**Database Folder** : [Click to move](https://github.com/CharmStrange/Project/tree/main/DB%20files/TribalWars) / MM-DD-YYYY
