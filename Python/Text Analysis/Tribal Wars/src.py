@@ -58,13 +58,13 @@ for url in active_worlds:
         
     list_for_player.append(active_players)
 
-for list in list_for_numpy:
+for list in list_for_player:
     for string in list:
         string = string.replace('index.php', '')
 
 ultimate_player_infos = []
 for world in World_URLs:
-    for urls in list_for_numpy:
+    for urls in list_for_player:
         for player_url in urls:
             #response = requests.get("https://www.twstats.com/" + world + player_url)
             #print("https://www.twstats.com" + world + player_url.replace('index.php', ''))
@@ -73,7 +73,7 @@ for world in World_URLs:
 columns = []
 data = []
 
-for gogogogo in ultimate_player_infos_c:
+for gogogogo in ultimate_player_infos:
     tmp_1 = []
     tmp_2 = []
     response = requests.get(gogogogo)
