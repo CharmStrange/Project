@@ -1,3 +1,5 @@
+# Executing Time : 3m 33s
+
 import requests
 from bs4 import BeautifulSoup
 import re
