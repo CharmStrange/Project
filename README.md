@@ -10,7 +10,7 @@
 ### **Major Project**
 [*당근마켓 아이템 경향 분석*](https://github.com/CharmStrange/Project/tree/main/Python/Text%20Analysis/%EB%8B%B9%EA%B7%BC)
 
-[*Tribal Wars Stats Crawler / Database*](https://github.com/CharmStrange/Project/tree/main/Python/Text%20Analysis/Tribal%20Wars)
+[*Tribal Wars Stats Crawler / Database*](https://github.com/CharmStrange/Tribal-Wars-Stats-Crawler)
 
 #
 
