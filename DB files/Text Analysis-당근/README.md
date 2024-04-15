@@ -1,4 +1,4 @@
-# SQLite DB : DAY {*191*}
+# SQLite DB : DAY {*199*}
 
 개인 프로젝트 로컬 데이터베이스에 적합한 **SQLite**를 사용했다.
 
