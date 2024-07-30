@@ -16,7 +16,7 @@
 
 ### **Featured Project**
 
-[*Custom DataBase Library*](https://github.com/CharmStrange/Project/tree/main/Python/DataFlows/CustomDB)
+[*Custom DataBase Library*](https://github.com/CharmStrange/CustomDB)
 
 **< Do Something >**
 
