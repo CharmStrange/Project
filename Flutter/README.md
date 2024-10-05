@@ -8,3 +8,11 @@
 
 [[구글 플레이 콘솔 어플리케이션 최종 등록 절차](GooglePlayConsole.md)]
 </div>
+
+---
+
+![image](https://github.com/user-attachments/assets/980399f9-2ae1-4088-889c-10612469a4f3)
+
+![image](https://github.com/user-attachments/assets/caf11c5b-9058-4ebb-bb9b-04c3703d4899)
+
+My applications will disappear after 2024 / 10 / 21
