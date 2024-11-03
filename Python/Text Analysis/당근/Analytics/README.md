@@ -1,4 +1,7 @@
 # 직관적 분석
+
+[매일 추출되는 정제된 데이터](https://github.com/CharmStrange/Project/tree/main/DB%20files/Text%20Analysis-%EB%8B%B9%EA%B7%BC)
+
 2024년 11월 3일 기준으로 385 개의 행, 여기에 가끔 며칠씩 빠진 데이터(약 15행 내외)는 미포함.
 
 2023년 8월에 데이터 수집을 시작하였으므로 약 1년간 매일 수집된 데이터를 보며 직관적으로 알 수 있었던 것 :
@@ -20,6 +23,8 @@
 (4) : 항상 수요과 공급이 있는 '상품권'. 
 ```
 
-# 수치적 분석
+# 범주형 분석
 
 [매일 추출되는 정제 이전의 Raw 데이터](https://github.com/CharmStrange/Project/blob/main/Python/Text%20Analysis/%EB%8B%B9%EA%B7%BC/Prototype_PySpark/CarrotText_WHOLE.db)
+
+# 수치적 분석
