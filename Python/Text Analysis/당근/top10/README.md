@@ -2,7 +2,8 @@
 
 DB 파일에 저장 [여기](https://github.com/CharmStrange/Project/tree/main/DB%20files/Text%20Analysis-%EB%8B%B9%EA%B7%BC)
 
-나중에 정리해서 [Kaggle](https://www.kaggle.com/) Dataset 업로드 할 예정.
+나중에 정리해서 [Kaggle]([https://www.kaggle.com/](https://www.kaggle.com/datasets/seventyfivebyte/raw-data)) Dataset 업로드 할 예정.
+나중에 정리해서 [Kaggle]() Dataset 업로드 할 예정.
 
 # 2023.12.11 부로 업데이트 없을 예정.
 사유 :
