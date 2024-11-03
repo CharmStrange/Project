@@ -20,4 +20,6 @@
 (4) : 항상 수요과 공급이 있는 '상품권'. 
 ```
 
+# 수치적 분석
+
 [매일 추출되는 정제 이전의 Raw 데이터](https://github.com/CharmStrange/Project/blob/main/Python/Text%20Analysis/%EB%8B%B9%EA%B7%BC/Prototype_PySpark/CarrotText_WHOLE.db)
