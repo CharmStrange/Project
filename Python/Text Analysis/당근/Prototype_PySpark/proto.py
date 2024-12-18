@@ -31,11 +31,11 @@ titles = []
 prices = []
 for region, url in regions.items():
   response = requests.get(url)
-  response.encoding = 'utf-8' 
+  response.encoding = 'utf-8'
   html_content = response.text
   soup = BeautifulSoup(html_content, "html.parser")
-  card_title_elements = soup.find_all(class_="_1b153uwk _1b153uwj _588sy41w _588sy41b")
-  card_price_elements = soup.find_all(class_="_1b153uwm _1b153uwl _588sy41y")
+  card_title_elements = soup.find_all(class_="_1b153uwh sprinkles_fontWeight_regular__1byufe81x sprinkles_overflow_hidden__1byufe819")
+  card_price_elements = soup.find_all(class_="_1b153uwi sprinkles_fontWeight_bold__1byufe81z")
 
   for element in card_title_elements:
     titles.append(element.get_text(strip=True))
