@@ -12,6 +12,7 @@
 
 [*Tribal Wars Stats Crawler / Database*](https://github.com/CharmStrange/Tribal-Wars-Stats-Crawler)
 
+[remind](https://blog.naver.com/zetmond/223710889074)
 #
 
 ### **Featured Project**
