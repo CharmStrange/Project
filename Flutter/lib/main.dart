@@ -102,8 +102,12 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     );
   }
 
+  // --- [main.dart 내 _buildStatGrid 수정: % 기호 추가] ---
   Widget _buildStatGrid(GameEntity entity, String title, Color color) {
     final keys = ["hp", "atk", "def", "crit_rate", "Hit", "Evasion", "Luck"];
+    // % 단위가 필요한 항목 리스트
+    final percentKeys = ["crit_rate", "Evasion", "Luck"];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -111,10 +115,12 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         const SizedBox(height: 8),
         GridView.builder(
           shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 3.5, crossAxisSpacing: 5, mainAxisSpacing: 5),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 3.5, crossAxisSpacing: 5, mainAxisSpacing: 5),
           itemCount: keys.length,
           itemBuilder: (context, i) {
             String k = keys[i];
+            bool isPercent = percentKeys.contains(k);
             return Container(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               decoration: BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(5)),
@@ -122,12 +128,20 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 children: [
                   Text(k, style: const TextStyle(fontSize: 9)),
                   const Spacer(),
-                  SizedBox(width: 40, child: TextFormField(
-                    initialValue: entity.stats[k].toString(),
-                    style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
-                    onChanged: (v) => entity.stats[k] = double.tryParse(v) ?? 0,
-                    decoration: const InputDecoration(isDense: true, border: InputBorder.none),
-                  )),
+                  SizedBox(
+                    width: 50, // % 기호를 위해 너비 확장
+                    child: TextFormField(
+                      initialValue: entity.stats[k].toString(),
+                      style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                      onChanged: (v) => entity.stats[k] = double.tryParse(v) ?? 0,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        border: InputBorder.none,
+                        suffixText: isPercent ? "%" : null,
+                        suffixStyle: const TextStyle(fontSize: 8, color: Colors.grey),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             );
@@ -200,31 +214,70 @@ class _BattleSimulatorState extends State<BattleSimulator> with SingleTickerProv
     });
   }
 
-  void _attack(GameEntity attacker, GameEntity defender, bool isPlayerAttacking) {
-    double atk = attacker.stats['atk']!;
-    double def = defender.stats['def']!;
-    double crit = attacker.stats['crit_rate']!;
+  void _updateGraph(double dmg) {
+    if (damageHistory.length >= 20) damageHistory.removeAt(0);
+    List<FlSpot> updated = [];
+    for (int i = 0; i < damageHistory.length; i++) {
+      updated.add(FlSpot(i.toDouble(), damageHistory[i].y));
+    }
+    damageHistory = updated;
+    damageHistory.add(FlSpot(damageHistory.length.toDouble(), dmg));
+  }
 
-    bool isCrit = math.Random().nextDouble() * 100 <= crit;
-    double dmg = (atk - def) * (isCrit ? 1.5 : 1.0);
-    if (dmg < 1) dmg = 1;
+  // --- [BattleSimulator 내 _attack 함수: 정밀 알고리즘 적용] ---
+  void _attack(GameEntity attacker, GameEntity defender, bool isPlayerAttacking) {
+    // 1. 기본 스탯 로드
+    double rawAtk = attacker.stats['atk'] ?? 0;
+    double rawDef = defender.stats['def'] ?? 0;
+    double hit = attacker.stats['Hit'] ?? 100;
+    double eva = defender.stats['Evasion'] ?? 0;
+    double luckA = attacker.stats['Luck'] ?? 0;
+    double luckD = defender.stats['Luck'] ?? 0;
+    double critBase = attacker.stats['crit_rate'] ?? 0;
+
+    // 2. [정밀 로직] 명중/회피 판정 (Evasion 100 시 절대 회피)
+    bool isHit;
+    if (eva >= 100) {
+      isHit = false; // 절대 회피
+    } else {
+      double hitChance = (hit / (hit + eva)) * 100;
+      isHit = math.Random().nextDouble() * 100 <= hitChance;
+    }
+
+    if (!isHit) {
+      setState(() {
+        battleLogs.insert(0, "[${isPlayerAttacking ? 'P' : 'M'}] MISS! 공격을 완전히 회피했습니다.");
+      });
+      return;
+    }
+
+    // 3. [정밀 로직] Luck 보너스 적용
+    // 공격 시: 공격력 보너스 / 방어 시: 방어력 보너스
+    double finalAtk = rawAtk + (luckA * 1.2);
+    double finalDef = rawDef + (luckD * 0.8);
+
+    // 4. 크리티컬 판정 (Luck 영향)
+    double finalCritRate = (critBase + (luckA * 0.5) - (luckD * 0.2)).clamp(0, 100);
+    bool isCrit = math.Random().nextDouble() * 100 <= finalCritRate;
+
+    // 5. 데미지 계산 (방어력 효율 공식)
+    double baseDmg = (finalAtk * finalAtk) / (finalAtk + finalDef);
+
+    // 난수 분산 (±10%)
+    double variation = 0.9 + (math.Random().nextDouble() * 0.2);
+    double totalDmg = baseDmg * variation * (isCrit ? 1.5 : 1.0);
+
+    if (totalDmg < 1) totalDmg = 1;
 
     setState(() {
       if (isPlayerAttacking) {
-        mCurHp = math.max(0, mCurHp - dmg);
-        // 그래프 데이터 갱신 (직선화 방지: 최신 20개 유지)
-        if (damageHistory.length >= 20) damageHistory.removeAt(0);
-        List<FlSpot> updated = [];
-        for (int i = 0; i < damageHistory.length; i++) {
-          updated.add(FlSpot(i.toDouble(), damageHistory[i].y));
-        }
-        damageHistory = updated;
-        damageHistory.add(FlSpot(damageHistory.length.toDouble(), dmg));
-
-        battleLogs.insert(0, "[P -> M] ${dmg.toStringAsFixed(1)} ${isCrit ? 'CRITICAL!' : ''}");
+        mCurHp = math.max(0, mCurHp - totalDmg);
+        // 그래프 최신화 (중복 코드 생략 - 기존 로직 유지)
+        _updateGraph(totalDmg);
+        battleLogs.insert(0, "[P -> M] ${totalDmg.toStringAsFixed(1)} ${isCrit ? '🔥CRITICAL!' : ''}");
       } else {
-        pCurHp = math.max(0, pCurHp - dmg);
-        battleLogs.insert(0, "[M -> P] ${dmg.toStringAsFixed(1)} ${isCrit ? 'CRITICAL!' : ''}");
+        pCurHp = math.max(0, pCurHp - totalDmg);
+        battleLogs.insert(0, "[M -> P] ${totalDmg.toStringAsFixed(1)} ${isCrit ? '💀CRITICAL!' : ''}");
       }
     });
   }
