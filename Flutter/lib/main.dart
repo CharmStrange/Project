@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:math_expressions/math_expressions.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'dart:math' as math;
 
 void main() => runApp(const BalancingApp());
 
@@ -11,13 +11,7 @@ class GameEntity {
   GameEntity({required this.name, required this.stats});
 }
 
-class FormulaTemplate {
-  final String label;
-  final String formula;
-  FormulaTemplate({required this.label, required this.formula});
-}
-
-// --- [Main App Structure] ---
+// --- [Main App] ---
 class BalancingApp extends StatelessWidget {
   const BalancingApp({super.key});
 
@@ -28,7 +22,7 @@ class BalancingApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: const Color(0xFF1B5E20),
-        scaffoldBackgroundColor: const Color(0xFFF8FAF8),
+        scaffoldBackgroundColor: const Color(0xFFF1F3F1),
       ),
       home: const MainNavigationScreen(),
     );
@@ -43,222 +37,64 @@ class MainNavigationScreen extends StatefulWidget {
 }
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
-  int _selectedIndex = 0;
+  // 전역 데이터 관리
+  late GameEntity player;
+  late GameEntity monster;
 
-  final List<Map<String, dynamic>> _menuItems = [
-    {'title': 'Simulator', 'icon': Icons.analytics_outlined},
-    {'title': 'Data Management', 'icon': Icons.storage_rounded},
-    {'title': 'Global Settings', 'icon': Icons.settings_suggest_outlined},
-  ];
+  @override
+  void initState() {
+    super.initState();
+    player = GameEntity(name: "PLAYER", stats: {
+      "hp": 1500, "atk": 150, "def": 50, "crit_rate": 20.0,
+      "Hit": 100, "Evasion": 15, "Luck": 10
+    });
+    monster = GameEntity(name: "BOSS", stats: {
+      "hp": 3000, "atk": 120, "def": 70, "crit_rate": 10.0,
+      "Hit": 90, "Evasion": 5, "Luck": 5
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_menuItems[_selectedIndex]['title'].toString().toUpperCase(),
-            style: const TextStyle(fontWeight: FontWeight.w900, color: Colors.white, fontSize: 14, letterSpacing: 1.2)),
+        title: const Text("BATTLE BALANCE STUDIO",
+            style: TextStyle(fontWeight: FontWeight.w900, color: Colors.white, fontSize: 13)),
         backgroundColor: const Color(0xFF1B5E20),
         iconTheme: const IconThemeData(color: Colors.white),
-        elevation: 0,
       ),
-      drawer: _buildSideDrawer(),
-      body: _selectedIndex == 0
-          ? const SimulatorPage()
-          : Center(child: Text("${_menuItems[_selectedIndex]['title']} Page Coming Soon")),
+      drawer: _buildCompactDrawer(),
+      body: BattleSimulator(player: player, monster: monster),
     );
   }
 
-  Widget _buildSideDrawer() {
+  // --- [Drawer UI] ---
+  Widget _buildCompactDrawer() {
     return Drawer(
-      backgroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+      width: MediaQuery.of(context).size.width * 0.85,
       child: Column(
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 60, bottom: 30, left: 24),
-            width: double.infinity,
-            color: const Color(0xFF1B5E20),
-            child: const Text("STUDIO v1.3", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20)),
+            height: 120, width: double.infinity, color: const Color(0xFF1B5E20),
+            padding: const EdgeInsets.all(20), alignment: Alignment.bottomLeft,
+            child: const Text("ADVANCED PARAMS", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: _menuItems.length,
-              itemBuilder: (context, index) {
-                bool isSelected = _selectedIndex == index;
-                return ListTile(
-                  leading: Icon(_menuItems[index]['icon'] as IconData, color: isSelected ? const Color(0xFF1B5E20) : Colors.grey),
-                  title: Text(_menuItems[index]['title'].toString(), style: TextStyle(color: isSelected ? const Color(0xFF1B5E20) : Colors.black87)),
-                  selected: isSelected,
-                  onTap: () {
-                    setState(() => _selectedIndex = index);
-                    Navigator.pop(context);
-                  },
-                );
-              },
+            child: ListView(
+              padding: const EdgeInsets.all(12),
+              children: [
+                _buildStatGrid(player, "Player Detailed", Colors.green),
+                const SizedBox(height: 20),
+                _buildStatGrid(monster, "Boss Detailed", Colors.red),
+              ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-// --- [Page: Simulator] ---
-class SimulatorPage extends StatefulWidget {
-  const SimulatorPage({super.key});
-
-  @override
-  State<SimulatorPage> createState() => _SimulatorPageState();
-}
-
-class _SimulatorPageState extends State<SimulatorPage> with SingleTickerProviderStateMixin {
-  late TextEditingController _formulaController;
-  late AnimationController _animController;
-
-  final player = GameEntity(name: "PLAYER", stats: {
-    "atk": 120, "def": 45, "hp": 1200, "int": 30, "agi": 25, "crit_rate": 15.0
-  });
-  final monster = GameEntity(name: "BOSS", stats: {
-    "atk": 80, "def": 60, "hp": 5000, "int": 10, "agi": 10, "crit_rate": 5.0
-  });
-
-  final List<FormulaTemplate> templates = [
-    FormulaTemplate(label: "기본식", formula: "a_atk - d_def"),
-    FormulaTemplate(label: "가중식", formula: "(a_atk * 1.5) + (a_int * 0.8) - d_def"),
-    FormulaTemplate(label: "치명타식", formula: "a_atk * (1 + a_crit_rate/100) - d_def"),
-  ];
-
-  double _lastResult = 0;
-  List<FlSpot> _damageHistory = [];
-  final List<String> _battleLogs = [];
-
-  @override
-  void initState() {
-    super.initState();
-    _formulaController = TextEditingController(text: templates[1].formula);
-    _animController = AnimationController(vsync: this, duration: const Duration(milliseconds: 400));
-  }
-
-  @override
-  void dispose() {
-    _formulaController.dispose();
-    _animController.dispose();
-    super.dispose();
-  }
-
-  void _clearGraph() {
-    setState(() {
-      _damageHistory = [];
-      _battleLogs.insert(0, "[SYS] Graph data cleared.");
-    });
-  }
-
-  void _runSimulation() {
-    try {
-      Parser p = Parser();
-      Expression exp = p.parse(_formulaController.text);
-      ContextModel cm = ContextModel();
-      player.stats.forEach((k, v) => cm.bindVariable(Variable('a_$k'), Number(v)));
-      monster.stats.forEach((k, v) => cm.bindVariable(Variable('d_$k'), Number(v)));
-
-      double result = exp.evaluate(EvaluationType.REAL, cm);
-      setState(() {
-        _lastResult = result < 0 ? 0 : result;
-        if (_damageHistory.length > 20) _damageHistory.removeAt(0);
-        _damageHistory.add(FlSpot(_damageHistory.length.toDouble(), _lastResult));
-        _battleLogs.insert(0, "[SIM] ${_lastResult.toStringAsFixed(1)} Dmg dealt.");
-        _animController.forward(from: 0);
-      });
-    } catch (e) {
-      setState(() => _lastResult = -1.0);
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        children: [
-          _buildVisualSection(),
-          const SizedBox(height: 20),
-          _buildFormulaCard(),
-          const SizedBox(height: 20),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(child: _buildStatCard(player, const Color(0xFF1B5E20))),
-              const SizedBox(width: 12),
-              Expanded(child: _buildStatCard(monster, const Color(0xFFC62828))),
-            ],
-          ),
-          const SizedBox(height: 24),
-          _buildActionButton(),
-          const SizedBox(height: 20),
-          _buildLogArea(),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildVisualSection() {
-    return Container(
-      height: 200,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 10)]
-      ),
-      child: Stack(
-        children: [
-          Row(
-            children: [
-              Expanded(
-                flex: 1,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("LIVE DAMAGE", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey)),
-                    ScaleTransition(
-                      scale: CurvedAnimation(parent: _animController, curve: Curves.easeOutBack),
-                      child: Text(
-                          _lastResult < 0 ? "ERR" : _lastResult.toStringAsFixed(0),
-                          style: const TextStyle(fontSize: 34, fontWeight: FontWeight.w900, color: Color(0xFF1B5E20))
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 20, right: 10),
-                  child: LineChart(LineChartData(
-                    gridData: const FlGridData(show: false),
-                    titlesData: const FlTitlesData(show: false),
-                    borderData: FlBorderData(show: false),
-                    lineBarsData: [
-                      LineChartBarData(
-                          spots: _damageHistory.isEmpty ? [const FlSpot(0, 0)] : _damageHistory,
-                          isCurved: true,
-                          color: const Color(0xFF1B5E20),
-                          barWidth: 3,
-                          dotData: const FlDotData(show: false),
-                          belowBarData: BarAreaData(show: true, color: const Color(0xFF1B5E20).withOpacity(0.1))
-                      )
-                    ],
-                  )),
-                ),
-              ),
-            ],
-          ),
-          Positioned(
-            right: 0, top: 0,
-            child: IconButton(
-              icon: const Icon(Icons.refresh, size: 20, color: Colors.grey),
-              onPressed: _clearGraph,
-              tooltip: "Clear Graph",
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: ElevatedButton(
+              onPressed: () => Navigator.pop(context),
+              style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF1B5E20), minimumSize: const Size(double.infinity, 45)),
+              child: const Text("APPLY & CLOSE", style: TextStyle(color: Colors.white)),
             ),
           )
         ],
@@ -266,106 +102,238 @@ class _SimulatorPageState extends State<SimulatorPage> with SingleTickerProvider
     );
   }
 
-  Widget _buildFormulaCard() {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text("BATTLE FORMULA", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey)),
-          const SizedBox(height: 12),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: templates.map((t) => Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: ChoiceChip(
-                  label: Text(t.label, style: TextStyle(fontSize: 11, color: _formulaController.text == t.formula ? Colors.white : Colors.black87)),
-                  selected: _formulaController.text == t.formula,
-                  onSelected: (val) => setState(() => _formulaController.text = t.formula),
-                  selectedColor: const Color(0xFF1B5E20),
-                  backgroundColor: Colors.grey[100],
-                  side: BorderSide.none,
-                  showCheckmark: false,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                ),
-              )).toList(),
-            ),
-          ),
-          const SizedBox(height: 12),
-          TextField(
-            controller: _formulaController,
-            style: const TextStyle(fontFamily: 'monospace', fontSize: 13, color: Color(0xFF1B5E20), fontWeight: FontWeight.bold),
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: const Color(0xFFF1F5F1),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10)
-            ),
-          ),
-        ],
-      ),
+  Widget _buildStatGrid(GameEntity entity, String title, Color color) {
+    final keys = ["hp", "atk", "def", "crit_rate", "Hit", "Evasion", "Luck"];
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(title, style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: color)),
+        const SizedBox(height: 8),
+        GridView.builder(
+          shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 3.5, crossAxisSpacing: 5, mainAxisSpacing: 5),
+          itemCount: keys.length,
+          itemBuilder: (context, i) {
+            String k = keys[i];
+            return Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              decoration: BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(5)),
+              child: Row(
+                children: [
+                  Text(k, style: const TextStyle(fontSize: 9)),
+                  const Spacer(),
+                  SizedBox(width: 40, child: TextFormField(
+                    initialValue: entity.stats[k].toString(),
+                    style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                    onChanged: (v) => entity.stats[k] = double.tryParse(v) ?? 0,
+                    decoration: const InputDecoration(isDense: true, border: InputBorder.none),
+                  )),
+                ],
+              ),
+            );
+          },
+        )
+      ],
     );
   }
+}
 
-  Widget _buildStatCard(GameEntity entity, Color color) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16)),
-      child: Column(
-        children: [
-          Text(entity.name, style: TextStyle(fontWeight: FontWeight.bold, color: color)),
-          const Divider(),
-          ...entity.stats.keys.map((key) => Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(key.toUpperCase(), style: const TextStyle(fontSize: 9, color: Colors.grey)),
-                SizedBox(
-                  width: 48,
-                  child: TextFormField(
-                    initialValue: entity.stats[key].toString(),
-                    style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                    onChanged: (v) => entity.stats[key] = double.tryParse(v) ?? 0,
-                    decoration: InputDecoration(
-                        isDense: true,
-                        suffixText: key.contains("rate") ? "%" : null,
-                        suffixStyle: const TextStyle(fontSize: 10),
-                        contentPadding: const EdgeInsets.symmetric(vertical: 8)
-                    ),
+// --- [Battle Simulator Logic & UI] ---
+class BattleSimulator extends StatefulWidget {
+  final GameEntity player;
+  final GameEntity monster;
+  const BattleSimulator({super.key, required this.player, required this.monster});
+
+  @override
+  State<BattleSimulator> createState() => _BattleSimulatorState();
+}
+
+class _BattleSimulatorState extends State<BattleSimulator> with SingleTickerProviderStateMixin {
+  late double pCurHp;
+  late double mCurHp;
+  bool isSimulating = false;
+  String currentTurn = "READY";
+  List<String> battleLogs = [];
+  List<FlSpot> damageHistory = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _resetBattle();
+  }
+
+  void _resetBattle() {
+    setState(() {
+      pCurHp = widget.player.stats['hp']!;
+      mCurHp = widget.monster.stats['hp']!;
+      battleLogs = ["전투 시뮬레이션 대기 중..."];
+      damageHistory = [];
+      currentTurn = "READY";
+      isSimulating = false;
+    });
+  }
+
+  Future<void> _startAutoBattle() async {
+    if (isSimulating) return;
+    _resetBattle();
+    setState(() => isSimulating = true);
+
+    while (pCurHp > 0 && mCurHp > 0 && isSimulating) {
+      // Player Turn
+      setState(() => currentTurn = "PLAYER");
+      await Future.delayed(const Duration(milliseconds: 600));
+      _attack(widget.player, widget.monster, true);
+      if (mCurHp <= 0) break;
+
+      // Monster Turn
+      setState(() => currentTurn = "MONSTER");
+      await Future.delayed(const Duration(milliseconds: 600));
+      _attack(widget.monster, widget.player, false);
+
+      await Future.delayed(const Duration(milliseconds: 400));
+    }
+
+    setState(() {
+      isSimulating = false;
+      currentTurn = "FINISHED";
+      battleLogs.insert(0, pCurHp > 0 ? "★ PLAYER VICTORIOUS" : "☠ PLAYER DEFEATED");
+    });
+  }
+
+  void _attack(GameEntity attacker, GameEntity defender, bool isPlayerAttacking) {
+    double atk = attacker.stats['atk']!;
+    double def = defender.stats['def']!;
+    double crit = attacker.stats['crit_rate']!;
+
+    bool isCrit = math.Random().nextDouble() * 100 <= crit;
+    double dmg = (atk - def) * (isCrit ? 1.5 : 1.0);
+    if (dmg < 1) dmg = 1;
+
+    setState(() {
+      if (isPlayerAttacking) {
+        mCurHp = math.max(0, mCurHp - dmg);
+        // 그래프 데이터 갱신 (직선화 방지: 최신 20개 유지)
+        if (damageHistory.length >= 20) damageHistory.removeAt(0);
+        List<FlSpot> updated = [];
+        for (int i = 0; i < damageHistory.length; i++) {
+          updated.add(FlSpot(i.toDouble(), damageHistory[i].y));
+        }
+        damageHistory = updated;
+        damageHistory.add(FlSpot(damageHistory.length.toDouble(), dmg));
+
+        battleLogs.insert(0, "[P -> M] ${dmg.toStringAsFixed(1)} ${isCrit ? 'CRITICAL!' : ''}");
+      } else {
+        pCurHp = math.max(0, pCurHp - dmg);
+        battleLogs.insert(0, "[M -> P] ${dmg.toStringAsFixed(1)} ${isCrit ? 'CRITICAL!' : ''}");
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        _buildBattleField(),
+        _buildGraphView(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Row(
+            children: [
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: isSimulating ? () => setState(() => isSimulating = false) : _startAutoBattle,
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: isSimulating ? Colors.orange : const Color(0xFF1B5E20),
+                      minimumSize: const Size(0, 50), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
                   ),
+                  child: Text(isSimulating ? "STOP" : "START AUTO BATTLE", style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                 ),
-              ],
-            ),
-          )),
+              ),
+              const SizedBox(width: 10),
+              IconButton(onPressed: _resetBattle, icon: const Icon(Icons.refresh), style: IconButton.styleFrom(backgroundColor: Colors.white)),
+            ],
+          ),
+        ),
+        Expanded(child: _buildLogArea()),
+      ],
+    );
+  }
+
+  Widget _buildBattleField() {
+    return Container(
+      padding: const EdgeInsets.all(20), color: Colors.white,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _buildUnitUI("PLAYER", pCurHp, widget.player.stats['hp']!, Colors.green, currentTurn == "PLAYER"),
+          const Text("VS", style: TextStyle(fontWeight: FontWeight.w900, color: Colors.grey)),
+          _buildUnitUI("BOSS", mCurHp, widget.monster.stats['hp']!, Colors.red, currentTurn == "MONSTER"),
         ],
       ),
     );
   }
 
-  Widget _buildActionButton() {
-    return ElevatedButton(
-      onPressed: _runSimulation,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFF1B5E20),
-        minimumSize: const Size(double.infinity, 56),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+  Widget _buildUnitUI(String name, double cur, double max, Color color, bool isActive) {
+    double ratio = (cur / max).clamp(0, 1.0);
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: isActive ? color.withOpacity(0.05) : Colors.transparent,
+        borderRadius: BorderRadius.circular(15),
+        border: Border.all(color: isActive ? color : Colors.grey[200]!, width: 2),
       ),
-      child: const Text("RUN SIMULATION", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+      child: Column(
+        children: [
+          Text(name, style: TextStyle(fontWeight: FontWeight.bold, color: color, fontSize: 12)),
+          const SizedBox(height: 10),
+          Stack(
+            children: [
+              Container(width: 100, height: 10, decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(5))),
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 400),
+                width: 100 * ratio, height: 10,
+                decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
+              ),
+            ],
+          ),
+          const SizedBox(height: 5),
+          Text("${cur.toStringAsFixed(0)} / ${max.toStringAsFixed(0)}", style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildGraphView() {
+    return Container(
+      height: 120, width: double.infinity, padding: const EdgeInsets.all(15), color: Colors.white,
+      child: LineChart(LineChartData(
+        gridData: const FlGridData(show: false), titlesData: const FlTitlesData(show: false),
+        borderData: FlBorderData(show: false),
+        lineBarsData: [
+          LineChartBarData(
+            spots: damageHistory.isEmpty ? [const FlSpot(0, 0)] : damageHistory,
+            isCurved: true, color: const Color(0xFF1B5E20), barWidth: 2, dotData: const FlDotData(show: false),
+            belowBarData: BarAreaData(show: true, color: const Color(0xFF1B5E20).withOpacity(0.1)),
+          )
+        ],
+      )),
     );
   }
 
   Widget _buildLogArea() {
     return Container(
-      height: 120,
-      width: double.infinity,
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12)),
+      width: double.infinity, color: const Color(0xFF1A1A1A),
       child: ListView.builder(
-        itemCount: _battleLogs.length,
-        itemBuilder: (context, index) => Text(_battleLogs[index], style: const TextStyle(fontSize: 11, fontFamily: 'monospace')),
+        padding: const EdgeInsets.all(15),
+        itemCount: battleLogs.length,
+        itemBuilder: (context, i) => Text(
+            battleLogs[i],
+            style: TextStyle(
+                color: battleLogs[i].contains("P ->") ? Colors.greenAccent : (battleLogs[i].contains("M ->") ? Colors.redAccent : Colors.white60),
+                fontSize: 11, fontFamily: 'monospace'
+            )
+        ),
       ),
     );
   }
