@@ -1,0 +1,61 @@
+{
+  "beginner": {
+
+    "1": [
+      {
+        "kanji": "家族",
+        "word": "가족",
+        "pronunciation": "カジョク",
+        "meaning": "家族",
+        "exampleKr": "우리 가족은 네네네 명이에요.",
+        "exampleJp": "私の家族은 4명입니다."
+      }
+    ],
+    "2": [
+      {
+        "kanji": "8",
+        "word": "9",
+        "pronunciation": "８８８",
+        "meaning": "８",
+        "exampleKr": "８８８８８",
+        "exampleJp": "명입니다."
+      }
+    ],
+    "11": [
+      {
+        "kanji": "8",
+        "word": "9",
+        "pronunciation": "８８８",
+        "meaning": "８",
+        "exampleKr": "８８８８８",
+        "exampleJp": "명입니다."
+      }
+    ]
+  },
+
+  "intermediate": {
+    "1": [
+
+    ]
+  },
+
+  "advanced": {
+    "1": [
+      {
+        "kanji": "스테이하이",
+        "word": "와스레테타요",
+        "pronunciation": "콘나니",
+        "meaning": "스키톳테",
+        "exampleKr": "킷토",
+        "exampleJp": "키미가쿠레타"
+      }
+
+    ]
+  },
+
+  "expert": {
+    "1": [
+
+    ]
+  }
+}
